@@ -1,33 +1,32 @@
+import java.util.List;
+import java.util.Map;
 
-/**
- * Lav en beskrivelse af klassen Country her.
- * 
- * @author (dit navn her)
- * @version (versions nummer eller dato her)
- */
-public class Country
-{
-    // instansvariabler - erstat eksemplet herunder med dine egne variabler
-    private int x;
+public class Country {
+    private String name;
+    private Map<City,List<Road>> network;
 
-    /**
-     * Konstruktør for objekter af klassen Country
-     */
-    public Country()
-    {
-        // initialiser instansvariable
-        x = 0;
+    public Country(String name, Map<City,List<Road>> network) {
+        this.name = name;
+        this.network = network;
     }
 
-    /**
-     * Et eksempel på en metode - erstat denne kommentar med din egen
-     * 
-     * @param  y  eksempel på en parameter til en metode
-     * @return    summen af x og y 
-     */
-    public int sampleMethod(int y)
-    {
-        // indsæt din egen kode her
-        return x + y;
+    public String getName() {
+        return name;
+    }
+
+    public Map<City,List<Road>> getNetwork() {
+        return network;
+    }
+
+    public List<Road> getRoads(City c) {
+
+    }
+
+    public List<City> getCities() {
+
+    }
+
+    public City getCity(String name) {
+
     }
 }

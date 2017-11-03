@@ -1,33 +1,30 @@
 
-/**
- * Lav en beskrivelse af klassen Road her.
- * 
- * @author (dit navn her)
- * @version (versions nummer eller dato her)
- */
-public class Road
-{
-    // instansvariabler - erstat eksemplet herunder med dine egne variabler
-    private int x;
-
-    /**
-     * Konstruktør for objekter af klassen Road
-     */
-    public Road()
-    {
-        // initialiser instansvariable
-        x = 0;
+public class Road implements Comparable<Road> {
+    private City from;
+    private City to;
+    private int length;
+    public Road(City from, City to, int length) {
+        this.from = from;
+        this.to = to;
+        this.length = length;
     }
 
-    /**
-     * Et eksempel på en metode - erstat denne kommentar med din egen
-     * 
-     * @param  y  eksempel på en parameter til en metode
-     * @return    summen af x og y 
-     */
-    public int sampleMethod(int y)
-    {
-        // indsæt din egen kode her
-        return x + y;
+    public City getFrom() {
+        return from;
+    }
+
+    public City getTo() {
+        return to;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public int compareTo(Road r) {
+        if(this.from.equals(r.from)) {
+            return this.to.compareTo(r.to);
+        }
+        return this.from.compareTo(r.from);
     }
 }

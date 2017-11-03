@@ -1,33 +1,32 @@
 
-/**
- * Lav en beskrivelse af klassen City her.
- * 
- * @author (dit navn her)
- * @version (versions nummer eller dato her)
- */
-public class City
-{
-    // instansvariabler - erstat eksemplet herunder med dine egne variabler
-    private int x;
+public class City implements Comparable<City> {
+    private String name;
+    private int value;
+    private int initialValue;
 
-    /**
-     * Konstruktør for objekter af klassen City
-     */
-    public City()
-    {
-        // initialiser instansvariable
-        x = 0;
+    public City(String name, int value) {
+        this.name = name;
+        this.value = value;
+        initialValue = value;
     }
 
-    /**
-     * Et eksempel på en metode - erstat denne kommentar med din egen
-     * 
-     * @param  y  eksempel på en parameter til en metode
-     * @return    summen af x og y 
-     */
-    public int sampleMethod(int y)
-    {
-        // indsæt din egen kode her
-        return x + y;
+    public int getValue() {
+        return value;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void changeValue(int amount) {
+        value += amount;
+    }
+
+    public void reset() {
+        value = initialValue;
+    }
+
+    public int compareTo(City c) {
+        return this.name.compareTo(c.name);
     }
 }

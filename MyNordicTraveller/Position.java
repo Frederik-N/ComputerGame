@@ -1,33 +1,48 @@
 
-/**
- * Lav en beskrivelse af klassen Position her.
- * 
- * @author (dit navn her)
- * @version (versions nummer eller dato her)
- */
-public class Position
-{
-    // instansvariabler - erstat eksemplet herunder med dine egne variabler
-    private int x;
+public class Position {
+    private City from;
+    private City to;
+    private int distance;
+    private int total;
 
-    /**
-     * Konstruktør for objekter af klassen Position
-     */
-    public Position()
-    {
-        // initialiser instansvariable
-        x = 0;
+    public Position(City from, City to, int distance) {
+        this.from = from;
+        this.to = to;
+        this.distance = distance;
+        this.total = distance;
     }
 
-    /**
-     * Et eksempel på en metode - erstat denne kommentar med din egen
-     * 
-     * @param  y  eksempel på en parameter til en metode
-     * @return    summen af x og y 
-     */
-    public int sampleMethod(int y)
-    {
-        // indsæt din egen kode her
-        return x + y;
+    public City getFrom() {
+        return from;
+    }
+
+    public City getTo() {
+        return to;
+    }
+
+    public int getDistance() {
+        return distance;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public boolean hasArrived() {
+        if(distance==0) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean move() {
+        if(distance>0) {
+            return true;
+        }
+        return false;
+    }
+
+    public void turnAround() {
+        distance = total-distance;
     }
 }
