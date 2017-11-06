@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -19,14 +21,24 @@ public class Country {
     }
 
     public List<Road> getRoads(City c) {
-
+        return network.get(c);
     }
 
     public List<City> getCities() {
+        List cities = new ArrayList<>(network.keySet());
+        Collections.sort(cities);
+        return cities;
 
     }
 
     public City getCity(String name) {
+        if(network.containsKey(name)) {
+            return (City) network.get(name);
+        }
+        return null;
+    }
 
+    public void reset() {
+        network.clear();
     }
 }
