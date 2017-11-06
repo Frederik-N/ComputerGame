@@ -46,4 +46,37 @@ public class Country {
         }
         return 0;
     }
+
+    public void addRoads(City a, City b, int length) {
+        if(!network.containsKey(a) && !network.containsKey(b)) {
+            return;
+        }
+        List<Road> roadsA = network.get(a);
+        List<Road> roadsB = network.get(b);
+        if (network.containsKey(a) && network.containsKey(b)) {
+            roadsA.add(new Road(a, b, length));
+            roadsB.add(new Road(b, a, length));
+            network.put(a,roadsA);
+            network.put(b,roadsB);
+            return;
+        }
+        if(network.containsKey(a)) {
+            roadsA.add(new Road(a, b, length));
+            network.put(a,roadsA);
+            return;
+        }
+        roadsB.add(new Road(b, a, length));
+        network.put(b, roadsB);
+
+
+
+    }
+
+    public Position position(City city) {
+
+    }
+
+    public Position readyToTravel(City from, City to) {
+
+    }
 }

@@ -37,6 +37,7 @@ public class Position {
 
     public boolean move() {
         if(distance>0) {
+            distance--;
             return true;
         }
         return false;
