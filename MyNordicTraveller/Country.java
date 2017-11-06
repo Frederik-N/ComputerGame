@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Country {
     private String name;
@@ -40,5 +37,13 @@ public class Country {
 
     public void reset() {
         network.clear();
+    }
+
+    public int bonus(int value) {
+        if(value>0) {
+        Random rand = new Random();
+        return rand.nextInt(value);
+        }
+        return 0;
     }
 }
