@@ -29,14 +29,18 @@ public class Country {
     }
 
     public City getCity(String name) {
-        if(network.containsKey(name)) {
-            return (City) network.get(name);
+        for(City c : getCities()) {
+            if(c.getName().equals(name)) {
+                return c;
+            }
         }
         return null;
     }
 
     public void reset() {
-        network.clear();
+        for(City c: getCities()) {
+            c.reset();
+        }
     }
 
     public int bonus(int value) {
@@ -50,33 +54,28 @@ public class Country {
     public void addRoads(City a, City b, int length) {
         if(!network.containsKey(a) && !network.containsKey(b)) {
             return;
-        }
-        List<Road> roadsA = network.get(a);
-        List<Road> roadsB = network.get(b);
-        if (network.containsKey(a) && network.containsKey(b)) {
-            roadsA.add(new Road(a, b, length));
-            roadsB.add(new Road(b, a, length));
-            network.put(a,roadsA);
-            network.put(b,roadsB);
+        } else if (network.containsKey(a) && network.containsKey(b)) {
+            network.get(a).add(new Road(a, b, length));
+            network.get(b).add(new Road(b, a, length));
             return;
-        }
-        if(network.containsKey(a)) {
-            roadsA.add(new Road(a, b, length));
-            network.put(a,roadsA);
+        } else if(network.containsKey(a)) {
+            network.get(a).add(new Road(a, b, length));
             return;
+        } else {
+            network.get(b).add(new Road(b, a, length));
         }
-        roadsB.add(new Road(b, a, length));
-        network.put(b, roadsB);
-
 
 
     }
 
     public Position position(City city) {
-
+        return new Position(city, city, 0);
     }
 
     public Position readyToTravel(City from, City to) {
-
+        if(from.equals(to)) {
+            return position(from);
+        }
+        else if()
     }
 }

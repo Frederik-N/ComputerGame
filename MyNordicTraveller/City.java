@@ -20,6 +20,10 @@ public class City implements Comparable<City> {
         return name;
     }
 
+    public Country getCountry() {
+        return country;
+    }
+
     public void changeValue(int amount) {
         value += amount;
     }
@@ -33,7 +37,10 @@ public class City implements Comparable<City> {
     }
 
     public int arrive() {
-        value -= country.bonus(value);
-        return country.bonus(value);
+        int bonus = country.bonus(value);
+        value -= bonus;
+        return bonus;
     }
+
+
 }
