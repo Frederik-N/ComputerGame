@@ -21,7 +21,6 @@ import java.util.*;
  */
 public class CGTest
 {
-    private Game game;
     private Country country1, country2;
     private City cityA, cityB, cityC, cityD, cityE, cityF, cityG;
 
@@ -32,16 +31,12 @@ public class CGTest
      */
     @Before
     public void setUp() {
-        game = new Game(0);
-        game.getRandom().setSeed(0);
         Map<City, List<Road>> network1 = new HashMap<>();
         Map<City, List<Road>> network2 = new HashMap<>();
 
         // Create countries
         country1 = new Country("Country 1", network1);
         country2 = new Country("Country 2", network2);
-        country1.setGame(game);
-        country2.setGame(game);
 
         // Create Cities
         cityA = new City("City A", 80, country1);
