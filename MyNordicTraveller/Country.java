@@ -52,20 +52,14 @@ public class Country {
     }
 
     public void addRoads(City a, City b, int length) {
-        if(!network.containsKey(a) && !network.containsKey(b)) {
-            return;
-        } else if (network.containsKey(a) && network.containsKey(b)) {
+        if (network.containsKey(a) && network.containsKey(b)) {
             network.get(a).add(new Road(a, b, length));
             network.get(b).add(new Road(b, a, length));
-            return;
         } else if(network.containsKey(a)) {
             network.get(a).add(new Road(a, b, length));
-            return;
-        } else {
+        } else if(network.containsKey(b)){
             network.get(b).add(new Road(b, a, length));
         }
-
-
     }
 
     public Position position(City city) {
@@ -73,9 +67,13 @@ public class Country {
     }
 
     public Position readyToTravel(City from, City to) {
-        if(from.equals(to)) {
-            return position(from);
+        if(!from.equals(to) || from.getCountry().equals(name)) {
+            for(Road r : network.get(from)) {
+                if(r.getTo().equals(to)) {
+                    return new Position(from, to, r.getLength());
+                }
+            }
         }
-        else if()
+        return position(from);
     }
 }
