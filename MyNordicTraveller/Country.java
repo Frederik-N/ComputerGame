@@ -52,12 +52,11 @@ public class Country {
     }
 
     public void addRoads(City a, City b, int length) {
-        if (network.containsKey(a) && network.containsKey(b)) {
+
+        if (network.containsKey(a)) {
             network.get(a).add(new Road(a, b, length));
-            network.get(b).add(new Road(b, a, length));
-        } else if(network.containsKey(a)) {
-            network.get(a).add(new Road(a, b, length));
-        } else if(network.containsKey(b)){
+        }
+        if (network.containsKey(b)) {
             network.get(b).add(new Road(b, a, length));
         }
     }

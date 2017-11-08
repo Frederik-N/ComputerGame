@@ -44,6 +44,9 @@ public class Position {
     }
 
     public void turnAround() {
-        distance = total-distance;
+        distance = Math.abs(distance-total);
+        City nTo = to;
+        to = from;
+        from = nTo;
     }
 }
