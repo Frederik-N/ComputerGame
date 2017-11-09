@@ -19,7 +19,10 @@ public class Country {
     }
 
     public List<Road> getRoads(City c) {
-        return network.get(c);
+        if(network.containsKey(c)) {
+            return network.get(c);
+        }
+        return Collections.emptyList();
     }
 
     public List<City> getCities() {
@@ -66,8 +69,8 @@ public class Country {
     }
 
     public Position readyToTravel(City from, City to) {
-        if(!from.equals(to) || from.getCountry().equals(name)) {
-            for(Road r : network.get(from)) {
+        if(!from.equals(to)) {
+            for(Road r : getRoads(from)) {
                 if(r.getTo().equals(to)) {
                     return new Position(from, to, r.getLength());
                 }

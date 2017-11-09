@@ -9,14 +9,23 @@ public class Road implements Comparable<Road> {
         this.length = length;
     }
 
+    /**
+     * @return where the road starts
+     */
     public City getFrom() {
         return from;
     }
 
+    /**
+     * @return where the road ends
+     */
     public City getTo() {
         return to;
     }
 
+    /**
+     * @return the length of the road
+     */
     public int getLength() {
         return length;
     }
