@@ -10,6 +10,7 @@ public class Road implements Comparable<Road> {
     }
 
     /**
+     * Where the road is starts/is from
      * @return where the road starts
      */
     public City getFrom() {
@@ -17,6 +18,7 @@ public class Road implements Comparable<Road> {
     }
 
     /**
+     * Where the road is going to/ends
      * @return where the road ends
      */
     public City getTo() {

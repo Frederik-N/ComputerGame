@@ -13,6 +13,7 @@ public class Position {
     }
 
     /**
+     * The city that is currently "from"
      * @return the city you move from
      */
     public City getFrom() {
@@ -20,6 +21,7 @@ public class Position {
     }
 
     /**
+     * The city that is currently "to"
      * @return the city you're moving to
      */
     public City getTo() {
