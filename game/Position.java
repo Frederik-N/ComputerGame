@@ -1,10 +1,24 @@
-
+/**
+ * Position describes where the player is currently at, and
+ * can be used to see possible destinations, moving and turning around
+ * @author Jonas Madsen || Frederik Nielsen
+ * @version 14.11.2017
+ */
 public class Position {
+    /** Cities that the player is between */
     private City from;
     private City to;
+    /** Distance left to "to" city */
     private int distance;
+    /** Distance between "to" and "from" city */
     private int total;
 
+    /**
+     * Creates a new Position object
+     * @param from the city you're moving from
+     * @param to the city you're moving to
+     * @param distance distance from you to the "to" city
+     */
     public Position(City from, City to, int distance) {
         this.from = from;
         this.to = to;
@@ -13,7 +27,7 @@ public class Position {
     }
 
     /**
-     * The city that is currently "from"
+     * Returns the city that is currently "from"
      * @return the city you move from
      */
     public City getFrom() {
@@ -21,7 +35,7 @@ public class Position {
     }
 
     /**
-     * The city that is currently "to"
+     * Returns the city that is currently "to"
      * @return the city you're moving to
      */
     public City getTo() {
@@ -29,14 +43,16 @@ public class Position {
     }
 
     /**
-     * @return the distance left to the "to" city
+     * Returns the distance left to the "to" city
+     * @return distance to "to" city
      */
     public int getDistance() {
         return distance;
     }
 
     /**
-     * @return the total distance between the cities
+     * Returns the total distance between the cities
+     * @return distance from "to" to "from" city
      */
     public int getTotal() {
         return total;
