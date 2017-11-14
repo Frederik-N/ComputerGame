@@ -47,10 +47,7 @@ public class Position {
      * @return true if at the city, false if not
      */
     public boolean hasArrived() {
-        if(distance==0) {
-            return true;
-        }
-        return false;
+        return (distance==0);
     }
 
     /**
