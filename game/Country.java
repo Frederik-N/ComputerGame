@@ -1,7 +1,10 @@
 import java.util.*;
 
 public class Country {
+    /** name of this country*/
     private String name;
+
+    /** network contains every city mapped to an element of the type <List<Road> */
     private Map<City,List<Road>> network;
     private Game game;
 
