@@ -6,30 +6,40 @@ public class Country {
 
     /** network contains every city mapped to an element of the type <List<Road> */
     private Map<City,List<Road>> network;
+
+    /** This game */
     private Game game;
 
+    /**
+     *
+     * @param name
+     * @param network
+     */
     public Country(String name, Map<City,List<Road>> network) {
         this.name = name;
         this.network = network;
     }
 
     /**
-     * @return the name of the country
+     * Returns name of this country.
+     * @return name of this country
      */
     public String getName() {
         return name;
     }
 
     /**
-     * @return the network of the cities and roads in the country
+     * Retuns the network of the cities and roads in this country
+     * @return network of cities and roads in this country.
      */
     public Map<City,List<Road>> getNetwork() {
         return network;
     }
 
     /**
-     * @param c specify a city in the country
-     * @return the roads of a specific city in the country
+     * Returns the roads that is in a specific city in this country.
+     * @param c specify a city in this country
+     * @return the roads of a specific city in this country
      */
     public List<Road> getRoads(City c) {
         if(network.containsKey(c)) {
@@ -39,7 +49,8 @@ public class Country {
     }
 
     /**
-     * @return an list of cities in the country
+     * Retuns the cities in this country in a sorted list.
+     * @return an list of cities in this country.
      */
     public List<City> getCities() {
         List cities = new ArrayList<>(network.keySet());
@@ -49,8 +60,8 @@ public class Country {
     }
 
     /**
-     * Checks for the city in the country
-     * @param name a name of an city
+     * Checks for the city is in this country
+     * @param name a name of a city
      * @return the city if it exist else null
      */
     public City getCity(String name) {
@@ -63,7 +74,7 @@ public class Country {
     }
 
     /**
-     * Resets all the cities in the country to their original value
+     * Resets all the cities in this country to their original value
      */
     public void reset() {
         for(City c: getCities()) {
@@ -74,7 +85,7 @@ public class Country {
     /**
      * Gets the random number bonus based on the city current value
      * @param value the value of the city
-     * @return the randomly rolled number
+     * @return the randomly rolled number or 0 if value = 0.
      */
     public int bonus(int value) {
         if(value>0) { 
@@ -85,8 +96,8 @@ public class Country {
 
     /**
      * Adds a road from one city to another one in this country with a specific length.
-     * @param a a city in the country
-     * @param b another city in the country
+     * @param a a city in this country
+     * @param b another city in this country
      * @param length the length of the road
      */
     public void addRoads(City a, City b, int length) {
@@ -100,8 +111,9 @@ public class Country {
     }
 
     /**
-     * @param city city from the country
-     * @return the current position of the player in the this city.
+     * Retuns the current position of the player in the city.
+     * @param city city from this country
+     * @return the current position of the player in the city.
      */
     public Position position(City city) {
         return new Position(city, city, 0);
@@ -111,7 +123,7 @@ public class Country {
      * Checks to see if the player is moving to a "correct" city
      * @param from city that is being moved from
      * @param to city that is being moved to
-     * @return position that the player is currently doing
+     * @return position that the player is currently having.
      */
     public Position readyToTravel(City from, City to) {
         if(!from.equals(to)) {
@@ -124,10 +136,18 @@ public class Country {
         return position(from);
     }
 
+    /**
+     * Returns the current game.
+     * @return te current game
+     */
     public Game getGame() {
         return game;
     }
 
+    /**
+     * Changes this game to a specific game.
+     * @param game a specific game.
+     */
     public void setGame(Game game) {
         this.game = game;
     }
