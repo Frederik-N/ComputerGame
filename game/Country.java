@@ -1,5 +1,9 @@
 import java.util.*;
-
+/**
+ * A country that contains cities and roads between cities.
+ * @author Jonas Madsen || Frederik Nielsen
+ * @version 14.11.2017
+ */
 public class Country {
     /** name of this country*/
     private String name;
