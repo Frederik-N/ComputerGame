@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=City
+comment1.params=name\ value\ country
+comment1.target=City(java.lang.String,\ int,\ Country)
+comment2.params=
+comment2.target=int\ getValue()
+comment3.params=
+comment3.target=java.lang.String\ getName()
+comment4.params=
+comment4.target=Country\ getCountry()
+comment5.params=amount
+comment5.target=void\ changeValue(int)
+comment6.params=
+comment6.target=void\ reset()
+comment7.params=c
+comment7.target=int\ compareTo(City)
+comment8.params=
+comment8.target=int\ arrive()
+numComments=9

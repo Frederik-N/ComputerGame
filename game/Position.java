@@ -82,7 +82,7 @@ public class Position {
      * Turns the player around, switching the "to" city and the "from" city
      */
     public void turnAround() {
-        distance = Math.abs(distance-total);
+        distance = total-distance;
         City nTo = to;
         to = from;
         from = nTo;
