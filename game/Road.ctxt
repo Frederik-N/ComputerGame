@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Road
+comment1.params=from\ to\ length
+comment1.target=Road(City,\ City,\ int)
+comment2.params=
+comment2.target=City\ getFrom()
+comment2.text=\r\n\ Where\ the\ road\ is\ starts/is\ from\r\n\ @return\ where\ the\ road\ starts\r\n
+comment3.params=
+comment3.target=City\ getTo()
+comment3.text=\r\n\ Where\ the\ road\ is\ going\ to/ends\r\n\ @return\ where\ the\ road\ ends\r\n
+comment4.params=
+comment4.target=int\ getLength()
+comment4.text=\r\n\ @return\ the\ length\ of\ the\ road\r\n
+comment5.params=r
+comment5.target=int\ compareTo(Road)
+numComments=6

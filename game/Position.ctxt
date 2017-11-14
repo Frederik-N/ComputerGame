@@ -1,0 +1,26 @@
+#BlueJ class context
+comment0.target=Position
+comment1.params=from\ to\ distance
+comment1.target=Position(City,\ City,\ int)
+comment2.params=
+comment2.target=City\ getFrom()
+comment2.text=\r\n\ The\ city\ that\ is\ currently\ "from"\r\n\ @return\ the\ city\ you\ move\ from\r\n
+comment3.params=
+comment3.target=City\ getTo()
+comment3.text=\r\n\ The\ city\ that\ is\ currently\ "to"\r\n\ @return\ the\ city\ you're\ moving\ to\r\n
+comment4.params=
+comment4.target=int\ getDistance()
+comment4.text=\r\n\ @return\ the\ distance\ left\ to\ the\ "to"\ city\r\n
+comment5.params=
+comment5.target=int\ getTotal()
+comment5.text=\r\n\ @return\ the\ total\ distance\ between\ the\ cities\r\n
+comment6.params=
+comment6.target=boolean\ hasArrived()
+comment6.text=\r\n\ Checks\ if\ the\ player\ has\ arrived\ at\ the\ city.\r\n\ @return\ true\ if\ at\ the\ city,\ false\ if\ not\r\n
+comment7.params=
+comment7.target=boolean\ move()
+comment7.text=\r\n\ Moves\ 1\ closer\ to\ the\ "to"\ city.\r\n\ @return\ true\ if\ distance\ above\ 0,\ false\ if\ not\r\n
+comment8.params=
+comment8.target=void\ turnAround()
+comment8.text=\r\n\ Turns\ the\ player\ around,\ switching\ the\ "to"\ city\ and\ the\ "from"\ city\r\n
+numComments=9

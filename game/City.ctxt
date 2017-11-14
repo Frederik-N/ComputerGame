@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=City
+comment1.params=name\ value\ country
+comment1.target=City(java.lang.String,\ int,\ Country)
+comment2.params=
+comment2.target=int\ getValue()
+comment2.text=\r\n\ @return\ value\ for\ this\ city\r\n
+comment3.params=
+comment3.target=java.lang.String\ getName()
+comment3.text=\r\n\ @return\ name\ for\ this\ city\r\n
+comment4.params=
+comment4.target=Country\ getCountry()
+comment4.text=\r\n\ @return\ country\ for\ this\ city\r\n
+comment5.params=amount
+comment5.target=void\ changeValue(int)
+comment5.text=\r\n\ \ Adds\ a\ specific\ amount\ to\ value\r\n\ @param\ amount\ the\ amount\ to\ add\ to\ value\r\n
+comment6.params=
+comment6.target=void\ reset()
+comment6.text=\r\n\ Sets\ value\ to\ its\ initial\ value\r\n
+comment7.params=c
+comment7.target=int\ compareTo(City)
+comment8.params=
+comment8.target=int\ arrive()
+comment8.text=\r\n\ Rolls\ a\ random\ number(bonus)\ and\ subtracts\ it\ from\ value.\r\n\ @return\ bonus\ that\ were\ substracted\ from\ value\r\n
+numComments=9
