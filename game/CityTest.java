@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 
 import static org.junit.Assert.*;
-
 public class CityTest {
     private Game game;
     private Country country1;
@@ -18,11 +17,9 @@ public class CityTest {
         game = new Game(0);
         Map<City, List<Road>> network1 = new HashMap<>();
 
-        // Create countries
         country1 = new Country("Country 1", network1);
         country1.setGame(game);
-
-        // Create Cities
+        
         cityA = new City("City A", 80, country1);
         cityB = new City("City B", 60, country1);
         cityC = new City("City C", 40, country1);
