@@ -29,6 +29,8 @@ public class CityTest {
     public void constructor() {
         City city = new City("CityA", 10, country1);
         assertEquals(city.getName(), "CityA");
+        assertEquals(city.getValue(), 10);
+        assertEquals(city.getCountry(), country1);
     }
 
     @Test

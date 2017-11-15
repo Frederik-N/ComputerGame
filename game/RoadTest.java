@@ -19,6 +19,8 @@ public class RoadTest {
     public void constructor() {
         Road road = new Road(cityA, cityB, 4);
         assertEquals(road.getFrom(), cityA);
+        assertEquals(road.getTo(), cityB);
+        assertEquals(road.getLength(), 4);
     }
 
     @Test
