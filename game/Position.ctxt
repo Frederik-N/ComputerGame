@@ -1,19 +1,21 @@
 #BlueJ class context
 comment0.target=Position
+comment0.text=\r\n\ Position\ describes\ where\ the\ player\ is\ currently\ at,\ and\r\n\ can\ be\ used\ to\ see\ possible\ destinations,\ moving\ and\ turning\ around\r\n\ @author\ Jonas\ Madsen\ ||\ Frederik\ Nielsen\r\n\ @version\ 14.11.2017\r\n
 comment1.params=from\ to\ distance
 comment1.target=Position(City,\ City,\ int)
+comment1.text=\r\n\ Creates\ a\ new\ Position\ object\r\n\ @param\ from\ the\ city\ you're\ moving\ from\r\n\ @param\ to\ the\ city\ you're\ moving\ to\r\n\ @param\ distance\ distance\ from\ you\ to\ the\ "to"\ city\r\n
 comment2.params=
 comment2.target=City\ getFrom()
-comment2.text=\r\n\ The\ city\ that\ is\ currently\ "from"\r\n\ @return\ the\ city\ you\ move\ from\r\n
+comment2.text=\r\n\ Returns\ the\ city\ that\ is\ currently\ "from"\r\n\ @return\ the\ city\ you\ move\ from\r\n
 comment3.params=
 comment3.target=City\ getTo()
-comment3.text=\r\n\ The\ city\ that\ is\ currently\ "to"\r\n\ @return\ the\ city\ you're\ moving\ to\r\n
+comment3.text=\r\n\ Returns\ the\ city\ that\ is\ currently\ "to"\r\n\ @return\ the\ city\ you're\ moving\ to\r\n
 comment4.params=
 comment4.target=int\ getDistance()
-comment4.text=\r\n\ @return\ the\ distance\ left\ to\ the\ "to"\ city\r\n
+comment4.text=\r\n\ Returns\ the\ distance\ left\ to\ the\ "to"\ city\r\n\ @return\ distance\ to\ "to"\ city\r\n
 comment5.params=
 comment5.target=int\ getTotal()
-comment5.text=\r\n\ @return\ the\ total\ distance\ between\ the\ cities\r\n
+comment5.text=\r\n\ Returns\ the\ total\ distance\ between\ the\ cities\r\n\ @return\ distance\ from\ "to"\ to\ "from"\ city\r\n
 comment6.params=
 comment6.target=boolean\ hasArrived()
 comment6.text=\r\n\ Checks\ if\ the\ player\ has\ arrived\ at\ the\ city.\r\n\ @return\ true\ if\ at\ the\ city,\ false\ if\ not\r\n

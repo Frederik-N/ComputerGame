@@ -15,9 +15,9 @@ public class Country {
     private Game game;
 
     /**
-     *
-     * @param name
-     * @param network
+     * Creates a new Country object.
+     * @param name name of this country.
+     * @param network contains cities mapped to a list a roads.
      */
     public Country(String name, Map<City,List<Road>> network) {
         this.name = name;

@@ -1,7 +1,9 @@
 #BlueJ class context
 comment0.target=Road
+comment0.text=\r\n\ Represents\ a\ road\ between\ two\ cities.\r\n\ A\ one-directional\ road\ is\ made\ between\ two\ cities\ and\ has\ a\ specific\ length.\r\n\ Therefore\ a\ road\ from\ city\ A\ to\ city\ B\ is\ not\ the\ same\ as\ from\ city\ B\ to\ city\ A.\r\n\r\n\ @author\ Frederik\ Nielsen\ ||\ Jonas\ Madsen\r\n\ @version\ 14.11.2017\r\n
 comment1.params=from\ to\ length
 comment1.target=Road(City,\ City,\ int)
+comment1.text=\r\n\ creates\ a\ new\ Road\ object.\r\n\ @param\ from\ \ \ the\ city\ the\ road\ starts\ in.\r\n\ @param\ to\ \ \ \ \ the\ city\ the\ road\ ends\ in.\r\n\ @param\ length\ the\ length\ of\ the\ road.\r\n
 comment2.params=
 comment2.target=City\ getFrom()
 comment2.text=\r\n\ Where\ the\ road\ is\ starts/is\ from\r\n\ @return\ where\ the\ road\ starts\r\n
@@ -10,7 +12,8 @@ comment3.target=City\ getTo()
 comment3.text=\r\n\ Where\ the\ road\ is\ going\ to/ends\r\n\ @return\ where\ the\ road\ ends\r\n
 comment4.params=
 comment4.target=int\ getLength()
-comment4.text=\r\n\ @return\ the\ length\ of\ the\ road\r\n
+comment4.text=\r\n\ Returns\ the\ length\ of\ the\ road\r\n\ @return\ length\ of\ road.\r\n
 comment5.params=r
 comment5.target=int\ compareTo(Road)
+comment5.text=\r\n\ Compares\ this\ road\ with\ the\ specified\ road\ for\ ordering.\r\n\ @param\ r\ Road\ that\ is\ being\ compared.\r\n\ @return\ a\ negative\ integer,\ zero,\ or\ a\ positive\ integer\ as\ this\ road\ is\ less\ than,\ equal\ to,\ or\ greater\ than\ the\ specified\ road.\r\n
 numComments=6
