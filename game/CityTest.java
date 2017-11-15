@@ -19,7 +19,7 @@ public class CityTest {
 
         country1 = new Country("Country 1", network1);
         country1.setGame(game);
-        
+
         cityA = new City("City A", 80, country1);
         cityB = new City("City B", 60, country1);
         cityC = new City("City C", 40, country1);
