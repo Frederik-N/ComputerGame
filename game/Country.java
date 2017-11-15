@@ -5,10 +5,10 @@ import java.util.*;
  * @version 14.11.2017
  */
 public class Country {
-    /** name of this country*/
+    /** name of this country */
     private String name;
 
-    /** network contains every city mapped to an element of the type <List<Road> */
+    /** network contains every city mapped to an element of the type <List<Road>> */
     private Map<City,List<Road>> network;
 
     /** This game */
