@@ -43,9 +43,9 @@ public class CityTest {
     @Test
     public void arrive() throws Exception {
         for (int i=0; i<1000; i++) {
-            game.getRandom().setSeed(0);
+            game.getRandom().setSeed(i);
             int bonus = country1.bonus(80);
-            game.getRandom().setSeed(0);
+            game.getRandom().setSeed(i);
             int arrive = cityA.arrive();
             assertEquals(arrive, bonus);
             assertEquals(cityA.getValue(), 80-bonus);
