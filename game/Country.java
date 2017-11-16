@@ -99,13 +99,12 @@ public class Country {
     }
 
     /**
-     * Adds a road from one city to another one in this country with a specific length.
+     * Adds a road from one city to another one with a specific length depending on which country they are in.
      * @param a a city in this country
      * @param b another city in this country
      * @param length the length of the road
      */
     public void addRoads(City a, City b, int length) {
-
         if (network.containsKey(a)) {
             network.get(a).add(new Road(a, b, length));
         }

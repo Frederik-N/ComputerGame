@@ -39,5 +39,5 @@ comment8.target=int\ bonus(int)
 comment8.text=\r\n\ Gets\ the\ random\ number\ bonus\ based\ on\ the\ city\ current\ value\r\n\ @param\ value\ the\ value\ of\ the\ city\r\n\ @return\ the\ randomly\ rolled\ number\ or\ 0\ if\ value\ \=\ 0.\r\n
 comment9.params=a\ b\ length
 comment9.target=void\ addRoads(City,\ City,\ int)
-comment9.text=\r\n\ Adds\ a\ road\ from\ one\ city\ to\ another\ one\ in\ this\ country\ with\ a\ specific\ length.\r\n\ @param\ a\ a\ city\ in\ this\ country\r\n\ @param\ b\ another\ city\ in\ this\ country\r\n\ @param\ length\ the\ length\ of\ the\ road\r\n
+comment9.text=\r\n\ Adds\ a\ road\ from\ one\ city\ to\ another\ one\ with\ a\ specific\ length\ depending\ on\ which\ country\ they\ are\ in.\r\n\ @param\ a\ a\ city\ in\ this\ country\r\n\ @param\ b\ another\ city\ in\ this\ country\r\n\ @param\ length\ the\ length\ of\ the\ road\r\n
 numComments=14

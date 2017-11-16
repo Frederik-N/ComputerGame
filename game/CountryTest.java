@@ -8,71 +8,50 @@ import static org.junit.Assert.*;
 public class CountryTest {
     private Game game;
     private Country country1, country2;
-    private City cityA, cityB, cityC, cityD, cityE, cityF, cityG;
+    private City cityA, cityB, cityE, cityF;
+    private Map<City, List<Road>> network1, network2;
 
     @Before
     public void setUp() throws Exception {
         game = new Game(0);
         game.getRandom().setSeed(0);
-        Map<City, List<Road>> network1 = new HashMap<>();
-        Map<City, List<Road>> network2 = new HashMap<>();
-
-        // Create countries
+        network1 = new HashMap<>();
+        network2 = new HashMap<>();
+        
         country1 = new Country("Country 1", network1);
         country2 = new Country("Country 2", network2);
         country1.setGame(game);
         country2.setGame(game);
 
-        // Create Cities
         cityA = new City("City A", 80, country1);
         cityB = new City("City B", 60, country1);
-        cityC = new City("City C", 40, country1);
-        cityD = new City("City D", 100, country1);
         cityE = new City("City E", 50, country2);
         cityF = new City("City F", 90, country2);
-        cityG = new City("City G", 70, country2);
 
-        // Create road lists
         List<Road> roadsA = new ArrayList<>(),
                 roadsB = new ArrayList<>(),
-                roadsC = new ArrayList<>(),
-                roadsD = new ArrayList<>(),
                 roadsE = new ArrayList<>(),
-                roadsF = new ArrayList<>(),
-                roadsG = new ArrayList<>();
+                roadsF = new ArrayList<>();
 
         network1.put(cityA, roadsA);
         network1.put(cityB, roadsB);
-        network1.put(cityC, roadsC);
-        network1.put(cityD, roadsD);
         network2.put(cityE, roadsE);
         network2.put(cityF, roadsF);
-        network2.put(cityG, roadsG);
 
-        // Create roads
         country1.addRoads(cityA, cityB, 4);
-        country1.addRoads(cityA, cityC, 3);
-        country1.addRoads(cityA, cityD, 5);
-        country1.addRoads(cityB, cityD, 2);
-        country1.addRoads(cityC, cityD, 2);
-        country1.addRoads(cityC, cityE, 4);
-        country1.addRoads(cityD, cityF, 3);
-        country2.addRoads(cityE, cityC, 4);
-        country2.addRoads(cityE, cityF, 2);
-        country2.addRoads(cityE, cityG, 5);
-        country2.addRoads(cityF, cityD, 3);
-        country2.addRoads(cityF, cityG, 6);
     }
 
     @Test
     public void constructor() {
         assertEquals(country1.getName(), "Country 1");
+        assertEquals(country1.getNetwork(), network1);
+
     }
 
     @Test
     public void reset() {
         cityA.arrive(); cityA.arrive(); cityA.arrive();
-        cityB.arrive(); cityE.arrive(); cityE.arrive();
+        cityE.arrive(); cityE.arrive(); cityE.arrive();
         int valueB = cityE.getValue();
         country1.reset();
         assertEquals(cityA.getValue(),80);
@@ -111,6 +90,45 @@ public class CountryTest {
             assertEquals(values0.size(), 1);
         }
     }
+
+    @Test
+    public void addRoads() {
+        List<Road> networkNew = network1.get(cityA);
+        networkNew.add(new Road(cityA, cityB, 6));
+        networkNew.add(new Road(cityB, cityA, 6));
+        country1.addRoads(cityA, cityB, 6);
+        assertEquals(country1.getRoads(cityA),networkNew);
+
+        networkNew.add(new Road(cityA, cityE, 6));
+        country1.addRoads(cityA, cityE, 6);
+        assertEquals(country1.getRoads(cityA), networkNew);
+
+        networkNew.add(new Road(cityA, cityE, 4));
+        country1.addRoads(cityE, cityA, 4);
+        assertEquals(country1.getRoads(cityA),networkNew);
+
+        country1.addRoads(cityE, cityF, 4);
+        assertEquals(country1.getRoads(cityA),networkNew);
+    }
+
+    @Test
+    public void position() {
+        assertEquals(country1.position(cityA).getFrom(), new Position(cityA, cityA, 0).getFrom());
+        assertEquals(country1.position(cityA).getTo(), new Position(cityA, cityA, 0).getTo());
+        assertEquals(country1.position(cityA).getDistance(), new Position(cityA, cityA, 0).getDistance());
+    }
+
+    @Test
+    public void readyToTravel() {
+        assertEquals(country1.readyToTravel(cityA, cityA).getFrom(), cityA);
+        assertEquals(country1.readyToTravel(cityA, cityA).getTo(), cityA);
+        assertEquals(country1.readyToTravel(cityA, cityA).getDistance(), 0);
+
+        assertEquals(country1.readyToTravel(cityA, cityB).getFrom(), cityA);
+        assertEquals(country1.readyToTravel(cityA, cityB).getTo(), cityB);
+        assertEquals(country1.readyToTravel(cityA, cityB).getDistance(), 4);
+    }
+
 }
 
 
