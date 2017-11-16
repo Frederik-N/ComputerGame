@@ -29,7 +29,6 @@ public class RoadTest {
         Road road2 = new Road(cityA, cityC, 0);
         Road road3 = new Road(cityB, cityA, 0);
         assertTrue(road1.compareTo(road2) < 0);
-        assertTrue(road2.compareTo(road1) > 0);
         assertTrue(road2.compareTo(road3) < 0);
         assertTrue(road1.compareTo(road3) < 0);
         assertEquals(road1.compareTo(road1), 0);
