@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 public class CountryTest {
     private Game game;
     private Country country1, country2;
-    private City cityA, cityB, cityE, cityF, cityG;
+    private City cityA, cityB, cityC, cityE, cityF, cityG;
     private Map<City, List<Road>> network1, network2;
 
     @Before
@@ -25,6 +25,7 @@ public class CountryTest {
 
         cityA = new City("City A", 80, country1);
         cityB = new City("City B", 60, country1);
+        cityC = new City("City C", 70, country1);
         cityE = new City("City E", 50, country2);
         cityF = new City("City F", 90, country2);
         cityG = new City("City G", 100, country2);
@@ -37,11 +38,12 @@ public class CountryTest {
 
         network1.put(cityA, roadsA);
         network1.put(cityB, roadsB);
+        network1.put(cityC, null);
         network2.put(cityE, roadsE);
         network2.put(cityF, roadsF);
         network2.put(cityG, roadsG);
 
-        country1.addRoads(cityA, cityB, 4);
+        country2.addRoads(cityG, cityF, 4);
     }
 
     @Test
@@ -52,7 +54,7 @@ public class CountryTest {
     }
 
     @Test
-    public void reset() {
+    public void reset() throws Exception {
         cityA.arrive(); cityA.arrive(); cityA.arrive();
         cityE.arrive(); cityE.arrive(); cityE.arrive();
         int valueB = cityE.getValue();
@@ -62,7 +64,7 @@ public class CountryTest {
     }
 
     @Test
-    public void bonus() {
+    public void bonus() throws Exception {
         for(int seed = 0; seed<1000; seed++) {
             game.getRandom().setSeed(seed);
             int sum = 0;
@@ -95,7 +97,7 @@ public class CountryTest {
     }
 
     @Test
-    public void addRoads() {
+    public void addRoads() throws Exception {
         List<Road> networkNew = network1.get(cityA);
         networkNew.add(new Road(cityA, cityB, 6));
         networkNew.add(new Road(cityB, cityA, 6));
@@ -115,21 +117,38 @@ public class CountryTest {
     }
 
     @Test
-    public void position() {
+    public void position() throws Exception {
         assertEquals(country1.position(cityA).getFrom(), cityA);
         assertEquals(country1.position(cityA).getTo(), cityA);
         assertEquals(country1.position(cityA).getDistance(), 0);
     }
 
     @Test
-    public void readyToTravel() {
+    public void readyToTravel() throws Exception {
         assertEquals(country1.readyToTravel(cityA, cityA).getFrom(), cityA);
         assertEquals(country1.readyToTravel(cityA, cityA).getTo(), cityA);
         assertEquals(country1.readyToTravel(cityA, cityA).getDistance(), 0);
+        assertEquals(country2.readyToTravel(cityG, cityF).getFrom(), cityG);
+        assertEquals(country2.readyToTravel(cityG, cityF).getTo(), cityF);
+        assertEquals(country2.readyToTravel(cityG, cityF).getDistance(), 4);
+    }
 
-        assertEquals(country1.readyToTravel(cityA, cityB).getFrom(), cityA);
-        assertEquals(country1.readyToTravel(cityA, cityB).getTo(), cityB);
-        assertEquals(country1.readyToTravel(cityA, cityB).getDistance(), 4);
+    @Test
+    public void getRoads() {
+        assertEquals(country1.getRoads(cityA), network1.get(cityA));
+        assertEquals(country1.getRoads(cityC), network1.get(cityC));
+    }
+
+    @Test
+    public void getCity() {
+        assertEquals(country1.getCity("City A"),cityA);
+    }
+
+    @Test
+    public void getCities() {
+        List<City> cities = new ArrayList<>();
+        cities.add(cityA); cities.add(cityB); cities.add(cityC);
+        assertEquals(country1.getCities(),cities);
     }
 
 }
