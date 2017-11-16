@@ -34,6 +34,25 @@ public class CityTest {
     }
 
     @Test
+    public void changeValue() throws Exception {
+        cityC.changeValue(10);
+        assertEquals(cityC.getValue(), 50);
+        cityC.changeValue(-10);
+        assertEquals(cityC.getValue(), 40);
+        cityC.changeValue(-45);
+        assertEquals(cityC.getValue(), -5);
+    }
+
+    @Test
+    public void reset() throws Exception {
+        cityC.reset();
+        assertEquals(cityC.getValue(), 40);
+        cityC.changeValue(100);
+        cityC.reset();
+        assertEquals(cityC.getValue(), 40);
+    }
+
+    @Test
     public void compareTo() throws Exception {
         assertTrue(cityA.compareTo(cityB) < 0);
         assertTrue(cityC.compareTo(cityA) > 0);
