@@ -20,6 +20,7 @@ public class PositionTest {
         assertEquals(pos.getFrom(), cityA);
         assertEquals(pos.getTo(),cityB);
         assertEquals(pos.getDistance(), pos.getDistance());
+        assertEquals(pos.getTotal(), pos.getTotal());
     }
 
     @Test
