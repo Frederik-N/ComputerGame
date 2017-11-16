@@ -1,10 +1,5 @@
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import static org.junit.Assert.*;
 
 public class PositionTest {
@@ -25,6 +20,7 @@ public class PositionTest {
         assertEquals(pos.getFrom(), cityA);
         assertEquals(pos.getTo(),cityB);
         assertEquals(pos.getDistance(), pos.getDistance());
+        assertEquals(pos.getTotal(), pos.getTotal());
     }
 
     @Test
