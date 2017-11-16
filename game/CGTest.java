@@ -31,7 +31,7 @@ public class CGTest
      * Called before every test case method.
      */
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
         game = new Game(0);
         game.getRandom().setSeed(0);
         Map<City, List<Road>> network1 = new HashMap<>();

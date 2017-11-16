@@ -35,7 +35,7 @@ public class PositionTest {
     }
 
     @Test
-    public void move() {
+    public void move() throws Exception {
         assertEquals(pos.getDistance(),3);
         assertTrue(pos.move());
         assertEquals(pos.getDistance(),2);
@@ -46,7 +46,7 @@ public class PositionTest {
     }
 
     @Test
-    public void turnAround() {
+    public void turnAround() throws Exception {
         pos.move();
         pos.turnAround();
         assertEquals(pos.getFrom(),cityB);
