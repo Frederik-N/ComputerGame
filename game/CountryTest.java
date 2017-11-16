@@ -134,18 +134,18 @@ public class CountryTest {
     }
 
     @Test
-    public void getRoads() {
+    public void getRoads() throws Exception {
         assertEquals(country1.getRoads(cityA), network1.get(cityA));
         assertEquals(country1.getRoads(cityC), network1.get(cityC));
     }
 
     @Test
-    public void getCity() {
+    public void getCity() throws Exception {
         assertEquals(country1.getCity("City A"),cityA);
     }
 
     @Test
-    public void getCities() {
+    public void getCities() throws Exception {
         List<City> cities = new ArrayList<>();
         cities.add(cityA); cities.add(cityB); cities.add(cityC);
         assertEquals(country1.getCities(),cities);
