@@ -4,7 +4,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class RoadTest {
-    private Country country1, country2;
+    private Country country1;
     private City cityA, cityB, cityC;
 
     @Before
@@ -31,6 +31,7 @@ public class RoadTest {
         assertTrue(road1.compareTo(road2) < 0);
         assertTrue(road2.compareTo(road1) > 0);
         assertTrue(road2.compareTo(road3) < 0);
+        assertTrue(road1.compareTo(road3) < 0);
         assertEquals(road1.compareTo(road1), 0);
     }
 
