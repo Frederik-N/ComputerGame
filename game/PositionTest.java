@@ -43,6 +43,7 @@ public class PositionTest {
         assertEquals(pos.getDistance(),1);
         assertTrue(pos.move());
         assertEquals(pos.getDistance(),0);
+        assertFalse(pos.move());
     }
 
     @Test

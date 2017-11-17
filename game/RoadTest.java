@@ -27,10 +27,10 @@ public class RoadTest {
 
     @Test
     public void constructor() {
-        Road road = new Road(cityA, cityB, 4);
+        Road road = new Road(cityA, cityB, 5);
         assertEquals(road.getFrom(), cityA);
         assertEquals(road.getTo(), cityB);
-        assertEquals(road.getLength(), 4);
+        assertEquals(road.getLength(), 5);
     }
 
     @Test
