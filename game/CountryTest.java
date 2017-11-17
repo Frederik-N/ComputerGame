@@ -31,14 +31,15 @@ public class CountryTest {
 
         List<Road> roadsA = new ArrayList<>(),
                 roadsB = new ArrayList<>(),
+                roadsC = new ArrayList<>(),
                 roadsE = new ArrayList<>(),
                 roadsF = new ArrayList<>();
 
-                roadsG = new ArrayList<>();
+        roadsG = new ArrayList<>();
 
         network1.put(cityA, roadsA);
         network1.put(cityB, roadsB);
-        network1.put(cityC, null);
+        network1.put(cityC, roadsC);
         network2.put(cityE, roadsE);
         network2.put(cityF, roadsF);
         network2.put(cityG, roadsG);
