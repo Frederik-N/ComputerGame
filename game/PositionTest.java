@@ -19,8 +19,8 @@ public class PositionTest {
     public void constructor() {
         assertEquals(pos.getFrom(), cityA);
         assertEquals(pos.getTo(),cityB);
-        assertEquals(pos.getDistance(), pos.getDistance());
-        assertEquals(pos.getTotal(), pos.getTotal());
+        assertEquals(pos.getDistance(), 3);
+        assertEquals(pos.getTotal(), 3);
     }
 
     @Test

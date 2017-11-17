@@ -1,8 +1,6 @@
 import org.junit.Before;
 import org.junit.Test;
-
 import java.util.*;
-
 import static org.junit.Assert.*;
 
 public class CountryTest {
@@ -107,10 +105,6 @@ public class CountryTest {
         networkNew.add(new Road(cityA, cityE, 6));
         country1.addRoads(cityA, cityE, 6);
         assertEquals(country1.getRoads(cityA), networkNew);
-
-        networkNew.add(new Road(cityA, cityF, 4));
-        country1.addRoads(cityF, cityA, 4);
-        assertEquals(country1.getRoads(cityA),networkNew);
 
         country1.addRoads(cityG, cityF, 4);
         assertEquals(country1.getRoads(cityA),networkNew);
