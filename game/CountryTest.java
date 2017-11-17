@@ -8,6 +8,7 @@ public class CountryTest {
     private Country country1, country2;
     private City cityA, cityB, cityC, cityE, cityF, cityG;
     private Map<City, List<Road>> network1, network2;
+    private List<Road> roadsG;
 
     @Before
     public void setUp() throws Exception {
@@ -31,7 +32,8 @@ public class CountryTest {
         List<Road> roadsA = new ArrayList<>(),
                 roadsB = new ArrayList<>(),
                 roadsE = new ArrayList<>(),
-                roadsF = new ArrayList<>(),
+                roadsF = new ArrayList<>();
+
                 roadsG = new ArrayList<>();
 
         network1.put(cityA, roadsA);
@@ -129,8 +131,7 @@ public class CountryTest {
 
     @Test
     public void getRoads() throws Exception {
-        assertEquals(country1.getRoads(cityA), network1.get(cityA));
-        assertEquals(country1.getRoads(cityC), network1.get(cityC));
+        assertEquals(country2.getRoads(cityG), roadsG);
     }
 
     @Test
