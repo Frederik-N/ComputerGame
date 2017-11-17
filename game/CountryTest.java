@@ -132,11 +132,13 @@ public class CountryTest {
     @Test
     public void getRoads() throws Exception {
         assertEquals(country2.getRoads(cityG), roadsG);
+        assertEquals(country1.getRoads(cityF), Collections.emptyList());
     }
 
     @Test
     public void getCity() throws Exception {
         assertEquals(country1.getCity("City A"),cityA);
+        assertEquals(country1.getCity("City E"), null);
     }
 
     @Test
