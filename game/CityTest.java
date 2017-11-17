@@ -31,6 +31,8 @@ public class CityTest {
         assertEquals(city.getName(), "CityA");
         assertEquals(city.getValue(), 10);
         assertEquals(city.getCountry(), country1);
+        city.reset();
+        assertEquals(city.getValue(), 10);
     }
 
     @Test
