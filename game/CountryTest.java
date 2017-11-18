@@ -82,33 +82,25 @@ public class CountryTest {
         for(int seed = 0; seed<1000; seed++) {
             game.getRandom().setSeed(seed);
             int sum = 0;
+            int sum1 = 0;
             Set<Integer> values = new HashSet<>();
             Set<Integer> values1 = new HashSet<>();
             for(int i = 0; i<10000; i++) {
                 int bonus = country1.bonus(80);
                 int bonus1 = country1.bonus(1);
-                boolean test = false;
-                if(bonus1==0 || bonus1==1) {
-                    test = true;
-                }
-                assertTrue(test);
                 assertEquals(country1.bonus(0), 0);
                 assertTrue(0<=bonus && bonus<=80);
+                assertTrue(0<=bonus1 && bonus1<=1);
                 sum += bonus;
+                sum1 += bonus1;
                 values.add(bonus);
                 values1.add(bonus1);
             }
             assertTrue(375000< sum && sum < 475000);
             assertEquals(values.size(),81);
+            assertTrue(4000 < sum1 && sum1 < 6000);
             assertEquals(values1.size(), 2);
         }
-
-
-        boolean test = false;
-        if(country1.bonus(1)==0 || country1.bonus(1)==1) {
-            test = true;
-        }
-        assertTrue(test);
     }
 
     @Test
