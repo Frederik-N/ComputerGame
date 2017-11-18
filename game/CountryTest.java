@@ -56,12 +56,12 @@ public class CountryTest {
 
     @Test
     public void reset() throws Exception {
-        int valueE = cityE.getValue();
+        int valueB = cityE.getValue();
         cityA.arrive(); cityA.arrive(); cityA.arrive();
         cityE.arrive(); cityE.arrive(); cityE.arrive();
         country1.reset();
         assertEquals(cityA.getValue(),80);
-        assertEquals(cityE.getValue(), valueE);
+        assertEquals(cityE.getValue(), valueB);
     }
 
     @Test
@@ -88,54 +88,29 @@ public class CountryTest {
                 values1.add(bonus1);
                 values0.add(bonus0);
             }
-            assertTrue(390000< sum && sum < 410000);
+            assertTrue(350000< sum && sum < 450000);
             assertEquals(values.size(),81);
-            assertTrue(4800< sum1 && sum1 < 5300);
+            assertTrue(4000< sum1 && sum1 < 6000);
             assertEquals(values1.size(), 2);
             assertTrue(sum0==0);
             assertEquals(values0.size(), 1);
         }
     }
-    @Test
-    public void readyToTravel() throws Exception {
-        assertEquals(country1.readyToTravel(cityA, cityA).getFrom(), cityA);
-        assertEquals(country1.readyToTravel(cityA, cityA).getTo(), cityA);
-        assertEquals(country1.readyToTravel(cityA, cityA).getDistance(), 0);
-
-        assertEquals(country2.readyToTravel(cityG, cityF).getFrom(), cityG);
-        assertEquals(country2.readyToTravel(cityG, cityF).getTo(), cityF);
-        assertEquals(country2.readyToTravel(cityG, cityF).getDistance(), 4);
-
-        assertEquals(country1.readyToTravel(cityB, cityC).getFrom(), cityB);
-        assertEquals(country1.readyToTravel(cityB, cityC).getTo(), cityB);
-        assertEquals(country1.readyToTravel(cityB, cityC).getDistance(), 0);
-
-        assertEquals(country1.readyToTravel(cityE, cityA).getFrom(), cityE);
-        assertEquals(country1.readyToTravel(cityE, cityA).getTo(), cityE);
-        assertEquals(country1.readyToTravel(cityE, cityA).getDistance(), 0);
-    }
 
     @Test
     public void addRoads() throws Exception {
-        List<Road> networkA = network1.get(cityA);
-        List<Road> networkB = network1.get(cityB);
-        List<Road> networkC = network1.get(cityC);
-        List<Road> networkE = network2.get(cityE);
-        networkA.add(new Road(cityA, cityB, 6));
-        networkB.add(new Road(cityB, cityA, 6));
+        List<Road> networkNew = network1.get(cityA);
+        networkNew.add(new Road(cityA, cityB, 6));
+        networkNew.add(new Road(cityB, cityA, 6));
         country1.addRoads(cityA, cityB, 6);
-        assertEquals(country1.getRoads(cityA),networkA);
-        assertEquals(country1.getRoads(cityB), networkB);
+        assertEquals(country1.getRoads(cityA),networkNew);
 
-        networkA.add(new Road(cityA, cityE, 6));
+        networkNew.add(new Road(cityA, cityE, 6));
         country1.addRoads(cityA, cityE, 6);
-        assertEquals(country1.getRoads(cityA), networkA);
-        assertEquals(country2.getRoads(cityE), networkE);
+        assertEquals(country1.getRoads(cityA), networkNew);
 
-        country2.addRoads(cityC, cityB, 4);
-        assertEquals(country1.getRoads(cityC), networkC);
-        assertEquals(country1.getRoads(cityB), networkB);
-
+        country1.addRoads(cityG, cityF, 4);
+        assertEquals(country1.getRoads(cityA),networkNew);
     }
 
     @Test
@@ -145,7 +120,15 @@ public class CountryTest {
         assertEquals(country1.position(cityA).getDistance(), 0);
     }
 
-
+    @Test
+    public void readyToTravel() throws Exception {
+        assertEquals(country1.readyToTravel(cityA, cityA).getFrom(), cityA);
+        assertEquals(country1.readyToTravel(cityA, cityA).getTo(), cityA);
+        assertEquals(country1.readyToTravel(cityA, cityA).getDistance(), 0);
+        assertEquals(country2.readyToTravel(cityG, cityF).getFrom(), cityG);
+        assertEquals(country2.readyToTravel(cityG, cityF).getTo(), cityF);
+        assertEquals(country2.readyToTravel(cityG, cityF).getDistance(), 4);
+    }
 
     @Test
     public void getRoads() throws Exception {
