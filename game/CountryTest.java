@@ -8,7 +8,8 @@ public class CountryTest {
     private Country country1, country2;
     private City cityA, cityB, cityC, cityE, cityF, cityG;
     private Map<City, List<Road>> network1, network2;
-    private List<Road> roadsG;
+    private List<Road> roadsG, roadsF;
+    private Road roadG;
 
     @Before
     public void setUp() throws Exception {
@@ -32,9 +33,9 @@ public class CountryTest {
         List<Road> roadsA = new ArrayList<>(),
                 roadsB = new ArrayList<>(),
                 roadsC = new ArrayList<>(),
-                roadsE = new ArrayList<>(),
-                roadsF = new ArrayList<>();
+                roadsE = new ArrayList<>();
 
+        roadsF = new ArrayList<>();
         roadsG = new ArrayList<>();
 
         network1.put(cityA, roadsA);
@@ -43,6 +44,7 @@ public class CountryTest {
         network2.put(cityE, roadsE);
         network2.put(cityF, roadsF);
         network2.put(cityG, roadsG);
+
 
         country2.addRoads(cityG, cityF, 4);
     }
@@ -56,12 +58,12 @@ public class CountryTest {
 
     @Test
     public void reset() throws Exception {
-        int valueB = cityE.getValue();
         cityA.arrive(); cityA.arrive(); cityA.arrive();
         cityE.arrive(); cityE.arrive(); cityE.arrive();
+        int valueE = cityE.getValue();
         country1.reset();
         assertEquals(cityA.getValue(),80);
-        assertEquals(cityE.getValue(), valueB);
+        assertEquals(cityE.getValue(), valueE);
     }
 
     @Test
@@ -88,9 +90,9 @@ public class CountryTest {
                 values1.add(bonus1);
                 values0.add(bonus0);
             }
-            assertTrue(350000< sum && sum < 450000);
+            assertTrue(390000< sum && sum < 410000);
             assertEquals(values.size(),81);
-            assertTrue(4000< sum1 && sum1 < 6000);
+            assertTrue(4600< sum1 && sum1 < 5400);
             assertEquals(values1.size(), 2);
             assertTrue(sum0==0);
             assertEquals(values0.size(), 1);
@@ -148,7 +150,7 @@ public class CountryTest {
 
     @Test
     public void getRoads() throws Exception {
-        assertEquals(country2.getRoads(cityG), roadsG);
+        assertEquals(country2.getRoads(cityG),roadsG);
         assertEquals(country1.getRoads(cityF), Collections.emptyList());
     }
 
