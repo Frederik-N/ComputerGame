@@ -87,9 +87,9 @@ public class CountryTest {
                 values1.add(bonus1);
                 values0.add(bonus0);
             }
-            assertTrue(300000< sum && sum < 500000);
+            assertTrue(375000< sum && sum < 475000);
             assertEquals(values.size(),81);
-            assertTrue(3000< sum1 && sum1 < 7000);
+            assertTrue(4000< sum1 && sum1 < 6000);
             assertEquals(values1.size(), 2);
             assertTrue(sum0==0);
             assertEquals(values0.size(), 1);
@@ -124,6 +124,10 @@ public class CountryTest {
         assertEquals(country1.position(cityA).getFrom(), cityA);
         assertEquals(country1.position(cityA).getTo(), cityA);
         assertEquals(country1.position(cityA).getDistance(), 0);
+
+        assertEquals(country1.position(cityE).getFrom(), cityE);
+        assertEquals(country1.position(cityE).getTo(), cityE);
+        assertEquals(country1.position(cityE).getDistance(), 0);
     }
 
     @Test
