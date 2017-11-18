@@ -88,9 +88,9 @@ public class CountryTest {
                 values1.add(bonus1);
                 values0.add(bonus0);
             }
-            assertTrue(350000< sum && sum < 450000);
+            assertTrue(390000< sum && sum < 410000);
             assertEquals(values.size(),81);
-            assertTrue(4000< sum1 && sum1 < 6000);
+            assertTrue(4800< sum1 && sum1 < 5300);
             assertEquals(values1.size(), 2);
             assertTrue(sum0==0);
             assertEquals(values0.size(), 1);
@@ -99,18 +99,30 @@ public class CountryTest {
 
     @Test
     public void addRoads() throws Exception {
-        List<Road> networkNew = network1.get(cityA);
-        networkNew.add(new Road(cityA, cityB, 6));
-        networkNew.add(new Road(cityB, cityA, 6));
+        List<Road> networkA = network1.get(cityA);
+        List<Road> networkB = network1.get(cityB);
+        List<Road> networkC = network1.get(cityC);
+        List<Road> networkE = network2.get(cityE);
+        networkA.add(new Road(cityA, cityB, 6));
+        networkB.add(new Road(cityB, cityA, 6));
         country1.addRoads(cityA, cityB, 6);
-        assertEquals(country1.getRoads(cityA),networkNew);
+        assertEquals(country1.getRoads(cityA),networkA);
+        assertEquals(country1.getRoads(cityB), networkB);
 
-        networkNew.add(new Road(cityA, cityE, 6));
+        networkA.add(new Road(cityA, cityE, 6));
         country1.addRoads(cityA, cityE, 6);
-        assertEquals(country1.getRoads(cityA), networkNew);
+        assertEquals(country1.getRoads(cityA), networkA);
+        assertEquals(country2.getRoads(cityE), networkE);
 
-        country1.addRoads(cityG, cityF, 4);
-        assertEquals(country1.getRoads(cityA),networkNew);
+        networkC.add(new Road(cityC, cityE, 3));
+        country1.addRoads(cityE, cityC, 3);
+        assertEquals(country1.getRoads(cityC),networkC);
+        assertEquals(country2.getRoads(cityE), networkE);
+
+        country2.addRoads(cityC, cityB, 4);
+        assertEquals(country1.getRoads(cityC), networkC);
+        assertEquals(country1.getRoads(cityB), networkB);
+
     }
 
     @Test
