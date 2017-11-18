@@ -48,8 +48,9 @@ public class CountryTest {
 
     @Test
     public void constructor() {
-        assertEquals(country1.getName(), "Country 1");
-        assertEquals(country1.getNetwork(), network1);
+        Country countryTest = new Country("Test Country", network1);
+        assertEquals(countryTest.getName(), "Test Country");
+        assertEquals(countryTest.getNetwork(), network1);
 
     }
 
