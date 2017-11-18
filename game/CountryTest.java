@@ -137,9 +137,18 @@ public class CountryTest {
         assertEquals(country1.readyToTravel(cityA, cityA).getFrom(), cityA);
         assertEquals(country1.readyToTravel(cityA, cityA).getTo(), cityA);
         assertEquals(country1.readyToTravel(cityA, cityA).getDistance(), 0);
+
         assertEquals(country2.readyToTravel(cityG, cityF).getFrom(), cityG);
         assertEquals(country2.readyToTravel(cityG, cityF).getTo(), cityF);
         assertEquals(country2.readyToTravel(cityG, cityF).getDistance(), 4);
+
+        assertEquals(country1.readyToTravel(cityB, cityC).getFrom(), cityB);
+        assertEquals(country1.readyToTravel(cityB, cityC).getTo(), cityB);
+        assertEquals(country1.readyToTravel(cityB, cityC).getDistance(), 0);
+
+        assertEquals(country1.readyToTravel(cityE, cityA).getFrom(), cityE);
+        assertEquals(country1.readyToTravel(cityE, cityA).getTo(), cityE);
+        assertEquals(country1.readyToTravel(cityE, cityA).getDistance(), 0);
     }
 
     @Test
