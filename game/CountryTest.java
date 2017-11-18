@@ -56,9 +56,9 @@ public class CountryTest {
 
     @Test
     public void reset() throws Exception {
+        int valueB = cityE.getValue();
         cityA.arrive(); cityA.arrive(); cityA.arrive();
         cityE.arrive(); cityE.arrive(); cityE.arrive();
-        int valueB = cityE.getValue();
         country1.reset();
         assertEquals(cityA.getValue(),80);
         assertEquals(cityE.getValue(), valueB);
@@ -138,7 +138,7 @@ public class CountryTest {
 
     @Test
     public void getCity() throws Exception {
-        assertEquals(country1.getCity("City A"),cityA);
+        assertEquals(country1.getCity("City A"), cityA);
         assertEquals(country1.getCity("City E"), null);
     }
 
@@ -146,7 +146,7 @@ public class CountryTest {
     public void getCities() throws Exception {
         List<City> cities = new ArrayList<>();
         cities.add(cityA); cities.add(cityB); cities.add(cityC);
-        assertEquals(country1.getCities(),cities);
+        assertEquals(country1.getCities(), cities);
     }
 
 }
