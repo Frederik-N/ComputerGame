@@ -1,7 +1,7 @@
 /**
  * A city is placed within a country and has a specific value, that reduces as the players arrive
  * @author Jonas Madsen || Frederik Nielsen
- * @version 14.11.2017
+ * @version 18.11.2017
  */
 public class City implements Comparable<City> {
     /** Name of this city */

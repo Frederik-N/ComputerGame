@@ -4,7 +4,7 @@
  * Therefore a road from city A to city B is not the same as from city B to city A.
  *
  * @author Frederik Nielsen || Jonas Madsen
- * @version 14.11.2017
+ * @version 18.11.2017
  */
 public class Road implements Comparable<Road> {
     /** References to cities that this road connects. */

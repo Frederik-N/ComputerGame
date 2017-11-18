@@ -64,7 +64,6 @@ public class CountryTest {
         Country countryTest = new Country("Test Country", network1);
         assertEquals(countryTest.getName(), "Test Country");
         assertEquals(countryTest.getNetwork(), network1);
-
     }
 
     @Test
@@ -89,6 +88,7 @@ public class CountryTest {
                 int bonus = country1.bonus(80);
                 int bonus1 = country1.bonus(1);
                 assertEquals(country1.bonus(0), 0);
+                assertEquals(country1.bonus(-10),0);
                 assertTrue(0<=bonus && bonus<=80);
                 assertTrue(0<=bonus1 && bonus1<=1);
                 sum += bonus;
@@ -151,15 +151,15 @@ public class CountryTest {
         assertEquals(country1.readyToTravel(cityB, cityC).getTo(), cityB);
         assertEquals(country1.readyToTravel(cityB, cityC).getDistance(), 0);
 
-        assertEquals(country1.readyToTravel(cityE, cityA).getFrom(), cityE);
-        assertEquals(country1.readyToTravel(cityE, cityA).getTo(), cityE);
-        assertEquals(country1.readyToTravel(cityE, cityA).getDistance(), 0);
+        assertEquals(country1.readyToTravel(cityE, cityC).getFrom(), cityE);
+        assertEquals(country1.readyToTravel(cityE, cityC).getTo(), cityE);
+        assertEquals(country1.readyToTravel(cityE, cityC).getDistance(), 0);
     }
 
     @Test
     public void getRoads() throws Exception {
         assertEquals(country2.getRoads(cityG),network2.get(cityG));
-        assertEquals(country1.getRoads(cityF), Collections.emptyList());
+        assertEquals(country1.getRoads(cityG), Collections.emptyList());
     }
 
     @Test

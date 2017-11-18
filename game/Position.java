@@ -2,7 +2,7 @@
  * Position describes where the player is currently at, and
  * can be used to see possible destinations, moving and turning around
  * @author Jonas Madsen || Frederik Nielsen
- * @version 14.11.2017
+ * @version 18.11.2017
  */
 public class Position {
     /** Cities that the player is between */
