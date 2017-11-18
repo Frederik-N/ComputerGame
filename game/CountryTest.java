@@ -115,7 +115,7 @@ public class CountryTest {
         assertEquals(country1.getRoads(cityA), networkA);
         assertEquals(country2.getRoads(cityE), networkE);
 
-        country1.addRoads(cityG, cityF, 4);
+        country1.addRoads(cityG, cityF, 6);
         assertEquals(country2.getRoads(cityF),networkF);
         assertEquals(country2.getRoads(cityG),networkG);
     }
