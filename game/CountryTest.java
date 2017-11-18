@@ -5,11 +5,9 @@ import static org.junit.Assert.*;
 
 public class CountryTest {
     private Game game;
-    private Country country1, country2;
+    private Country country1, country2, country3;
     private City cityA, cityB, cityC, cityE, cityF, cityG;
-    private Map<City, List<Road>> network1, network2;
-    private List<Road> roadsG, roadsF;
-    private Road roadG;
+    private Map<City, List<Road>> network1, network2, network3;
 
     @Before
     public void setUp() throws Exception {
@@ -17,9 +15,11 @@ public class CountryTest {
         game.getRandom().setSeed(0);
         network1 = new HashMap<>();
         network2 = new HashMap<>();
+        network3 = new HashMap<>();
 
         country1 = new Country("Country 1", network1);
         country2 = new Country("Country 2", network2);
+        country3 = new Country("Country 3", network3);
         country1.setGame(game);
         country2.setGame(game);
 
@@ -33,10 +33,9 @@ public class CountryTest {
         List<Road> roadsA = new ArrayList<>(),
                 roadsB = new ArrayList<>(),
                 roadsC = new ArrayList<>(),
-                roadsE = new ArrayList<>();
-
-        roadsF = new ArrayList<>();
-        roadsG = new ArrayList<>();
+                roadsE = new ArrayList<>(),
+                roadsF = new ArrayList<>(),
+                roadsG = new ArrayList<>();
 
         network1.put(cityA, roadsA);
         network1.put(cityB, roadsB);
@@ -90,9 +89,9 @@ public class CountryTest {
                 values1.add(bonus1);
                 values0.add(bonus0);
             }
-            assertTrue(390000< sum && sum < 410000);
+            assertTrue(300000< sum && sum < 500000);
             assertEquals(values.size(),81);
-            assertTrue(4600< sum1 && sum1 < 5400);
+            assertTrue(3000< sum1 && sum1 < 7000);
             assertEquals(values1.size(), 2);
             assertTrue(sum0==0);
             assertEquals(values0.size(), 1);
@@ -150,8 +149,8 @@ public class CountryTest {
 
     @Test
     public void getRoads() throws Exception {
-        assertEquals(country2.getRoads(cityG),roadsG);
-        assertEquals(country1.getRoads(cityF), Collections.emptyList());
+        assertEquals(country2.getRoads(cityG),network2.get(cityG));
+        assertEquals(country1.getRoads(cityF), new ArrayList());
     }
 
     @Test
@@ -165,6 +164,8 @@ public class CountryTest {
         List<City> cities = new ArrayList<>();
         cities.add(cityA); cities.add(cityB); cities.add(cityC);
         assertEquals(country1.getCities(), cities);
+
+        assertEquals(country3.getCities(), new ArrayList());
     }
 
 }
