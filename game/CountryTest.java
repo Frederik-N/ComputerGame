@@ -159,6 +159,7 @@ public class CountryTest {
         assertEquals(country1.readyToTravel(cityB, cityC).getTo(), cityB);
         assertEquals(country1.readyToTravel(cityB, cityC).getTotal(), 0);
 
+        /** ??    */
         assertEquals(country1.readyToTravel(cityE, cityC).getFrom(), cityE);
         assertEquals(country1.readyToTravel(cityE, cityC).getTo(), cityE);
         assertEquals(country1.readyToTravel(cityE, cityC).getTotal(), 0);
@@ -166,13 +167,11 @@ public class CountryTest {
 
     @Test
     public void getRoads() throws Exception {
-        assertEquals(country2.getRoads(cityG),country2.getNetwork().get(cityG));
-        assertEquals(country1.getRoads(cityG), Collections.emptyList());
         /** A city in the country    */
-        assertEquals(country2.getRoads(cityG),network2.get(cityG));
+        assertEquals(country2.getRoads(cityG),country2.getNetwork().get(cityG));
 
         /** A city not in the country    */
-        assertEquals(country1.getRoads(cityF), Collections.emptyList());
+        assertEquals(country1.getRoads(cityG), Collections.emptyList());
     }
 
     @Test
