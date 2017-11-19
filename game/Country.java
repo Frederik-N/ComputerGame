@@ -89,7 +89,7 @@ public class Country {
     /**
      * Gets the random number bonus based on the city current value
      * @param value the value of the city
-     * @return the randomly rolled number or 0 if value = 0.
+     * @return the randomly rolled number or 0 if value <= 0.
      */
     public int bonus(int value) {
         if(value>0) { 
@@ -115,7 +115,7 @@ public class Country {
 
     /**
      * Retuns the current position of the player in the city.
-     * @param city city from this country
+     * @param city city
      * @return the current position of the player in the city.
      */
     public Position position(City city) {
@@ -141,7 +141,7 @@ public class Country {
 
     /**
      * Returns the current game.
-     * @return te current game
+     * @return the current game
      */
     public Game getGame() {
         return game;

@@ -7,14 +7,13 @@ public class CountryTest {
     private Game game;
     private Country country1, country2;
     private City cityA, cityB, cityC, cityD, cityE, cityF, cityG;
-    private Map<City, List<Road>> network1, network2;
 
     @Before
     public void setUp() throws Exception {
         game = new Game(0);
         game.getRandom().setSeed(0);
-        network1 = new HashMap<>();
-        network2 = new HashMap<>();
+        Map<City, List<Road>> network1 = new HashMap<>();
+        Map<City, List<Road>> network2 = new HashMap<>();
 
         country1 = new Country("Country 1", network1);
         country2 = new Country("Country 2", network2);
@@ -61,9 +60,10 @@ public class CountryTest {
 
     @Test
     public void constructor() {
-        Country countryTest = new Country("Test Country", network1);
+        Map<City, List<Road>> networkTest = new HashMap<>();
+        Country countryTest = new Country("Test Country", networkTest);
         assertEquals(countryTest.getName(), "Test Country");
-        assertEquals(countryTest.getNetwork(), network1);
+        assertEquals(countryTest.getNetwork(), networkTest);
     }
 
     @Test
@@ -88,7 +88,6 @@ public class CountryTest {
                 int bonus = country1.bonus(80);
                 int bonus1 = country1.bonus(1);
                 assertEquals(country1.bonus(0), 0);
-                assertEquals(country1.bonus(-10),0);
                 assertTrue(0<=bonus && bonus<=80);
                 assertTrue(0<=bonus1 && bonus1<=1);
                 sum += bonus;
@@ -105,11 +104,11 @@ public class CountryTest {
 
     @Test
     public void addRoads() throws Exception {
-        List<Road> networkA = network1.get(cityA);
-        List<Road> networkB = network1.get(cityB);
-        List<Road> networkF = network2.get(cityF);
-        List<Road> networkG = network2.get(cityG);
-        List<Road> networkE = network2.get(cityE);
+        List<Road> networkA = country1.getRoads(cityA);
+        List<Road> networkB = country1.getRoads(cityB);
+        List<Road> networkF = country2.getRoads(cityF);
+        List<Road> networkG = country2.getRoads(cityG);
+        List<Road> networkE = country2.getRoads(cityE);
         networkA.add(new Road(cityA, cityB, 6));
         networkB.add(new Road(cityB, cityA, 6));
         country1.addRoads(cityA, cityB, 6);
@@ -130,35 +129,35 @@ public class CountryTest {
     public void position() throws Exception {
         assertEquals(country1.position(cityA).getFrom(), cityA);
         assertEquals(country1.position(cityA).getTo(), cityA);
-        assertEquals(country1.position(cityA).getDistance(), 0);
+        assertEquals(country1.position(cityA).getTotal(), 0);
 
         assertEquals(country1.position(cityE).getFrom(), cityE);
         assertEquals(country1.position(cityE).getTo(), cityE);
-        assertEquals(country1.position(cityE).getDistance(), 0);
+        assertEquals(country1.position(cityE).getTotal(), 0);
     }
 
     @Test
     public void readyToTravel() throws Exception {
         assertEquals(country1.readyToTravel(cityA, cityA).getFrom(), cityA);
         assertEquals(country1.readyToTravel(cityA, cityA).getTo(), cityA);
-        assertEquals(country1.readyToTravel(cityA, cityA).getDistance(), 0);
+        assertEquals(country1.readyToTravel(cityA, cityA).getTotal(), 0);
 
         assertEquals(country2.readyToTravel(cityG, cityF).getFrom(), cityG);
         assertEquals(country2.readyToTravel(cityG, cityF).getTo(), cityF);
-        assertEquals(country2.readyToTravel(cityG, cityF).getDistance(), 6);
+        assertEquals(country2.readyToTravel(cityG, cityF).getTotal(), 6);
 
         assertEquals(country1.readyToTravel(cityB, cityC).getFrom(), cityB);
         assertEquals(country1.readyToTravel(cityB, cityC).getTo(), cityB);
-        assertEquals(country1.readyToTravel(cityB, cityC).getDistance(), 0);
+        assertEquals(country1.readyToTravel(cityB, cityC).getTotal(), 0);
 
         assertEquals(country1.readyToTravel(cityE, cityC).getFrom(), cityE);
         assertEquals(country1.readyToTravel(cityE, cityC).getTo(), cityE);
-        assertEquals(country1.readyToTravel(cityE, cityC).getDistance(), 0);
+        assertEquals(country1.readyToTravel(cityE, cityC).getTotal(), 0);
     }
 
     @Test
     public void getRoads() throws Exception {
-        assertEquals(country2.getRoads(cityG),network2.get(cityG));
+        assertEquals(country2.getRoads(cityG),country2.getNetwork().get(cityG));
         assertEquals(country1.getRoads(cityG), Collections.emptyList());
     }
 
