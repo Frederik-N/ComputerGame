@@ -187,8 +187,10 @@ public class CountryTest {
     public void getCities() throws Exception {
         List<City> cities = new ArrayList<>();
         Map<City, List<Road>> networkTest = new HashMap<>();
+        /** Test with an empty country */
         Country countryTest = new Country("Country Test", networkTest);
         assertEquals(countryTest.getCities(),cities);
+        /** Test with a country with cities */
         cities.add(cityA); cities.add(cityB); cities.add(cityC); cities.add(cityD);
         assertEquals(country1.getCities(), cities);
     }
