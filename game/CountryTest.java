@@ -95,7 +95,7 @@ public class CountryTest {
                 values.add(bonus);
                 values1.add(bonus1);
             }
-            assertTrue(375000< sum && sum < 475000);
+            assertTrue(375000< sum && sum < 425000);
             assertEquals(values.size(),81);
             assertTrue(4000 < sum1 && sum1 < 6000);
             assertEquals(values1.size(), 2);
@@ -144,22 +144,22 @@ public class CountryTest {
 
     @Test
     public void readyToTravel() throws Exception {
-        /** ??    */
+        /** from equals to    */
         assertEquals(country1.readyToTravel(cityA, cityA).getFrom(), cityA);
         assertEquals(country1.readyToTravel(cityA, cityA).getTo(), cityA);
         assertEquals(country1.readyToTravel(cityA, cityA).getTotal(), 0);
 
-        /** ??    */
+        /** from does not equal to and there is a road.    */
         assertEquals(country2.readyToTravel(cityG, cityF).getFrom(), cityG);
         assertEquals(country2.readyToTravel(cityG, cityF).getTo(), cityF);
         assertEquals(country2.readyToTravel(cityG, cityF).getTotal(), 6);
 
-        /** ??    */
+        /** from does not equal to and there is no road.    */
         assertEquals(country1.readyToTravel(cityB, cityC).getFrom(), cityB);
         assertEquals(country1.readyToTravel(cityB, cityC).getTo(), cityB);
         assertEquals(country1.readyToTravel(cityB, cityC).getTotal(), 0);
 
-        /** ??    */
+        /** from is not in the country.    */
         assertEquals(country1.readyToTravel(cityE, cityC).getFrom(), cityE);
         assertEquals(country1.readyToTravel(cityE, cityC).getTo(), cityE);
         assertEquals(country1.readyToTravel(cityE, cityC).getTotal(), 0);
@@ -186,6 +186,9 @@ public class CountryTest {
     @Test
     public void getCities() throws Exception {
         List<City> cities = new ArrayList<>();
+        Map<City, List<Road>> networkTest = new HashMap<>();
+        Country countryTest = new Country("Country Test", networkTest);
+        assertEquals(countryTest.getCities(),cities);
         cities.add(cityA); cities.add(cityB); cities.add(cityC); cities.add(cityD);
         assertEquals(country1.getCities(), cities);
     }
