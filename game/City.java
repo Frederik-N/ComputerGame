@@ -82,6 +82,4 @@ public class City implements Comparable<City> {
         value -= bonus;
         return bonus;
     }
-
-
 }

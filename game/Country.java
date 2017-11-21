@@ -154,4 +154,25 @@ public class Country {
     public void setGame(Game game) {
         this.game = game;
     }
+
+    /**
+     * Indicates whether an other country is equal to this one
+     * @param o the country with which to compare
+     * @return true if the countries are the same else false
+     */
+    public boolean equals(Object o) {
+        if(this.equals(o)) {return true;}
+        if(o.equals(null)) {return false;}
+        if(getClass() != o.getClass()) {return false;}
+        Country other = (Country) o;
+        return this.name.equals(other.name);
+    }
+
+    /**
+     * Returns a hash code value for the country
+     * @return a hash code value for the country
+     */
+    public int hashCode() {
+        return 11 * name.hashCode();
+    }
 }
