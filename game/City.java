@@ -82,4 +82,25 @@ public class City implements Comparable<City> {
         value -= bonus;
         return bonus;
     }
+
+    /**
+     *  Indicates whether an other city is equal to this one.
+     * @param o The object that is being compared.
+     * @return True if this object is the same as the other, otherwise false.
+     */
+    public boolean equals(Object o) {
+        if(this.equals(o)) { return true;}
+        if (o.equals(null)) { return false;}
+        if(!getClass().equals(o.getClass())) {return false;}
+        City city = (City) o;
+        return name.equals(city.getName()) && country.equals(city.getCountry());
+    }
+
+    /**
+     * Returns a hashcode value for the object.
+     * @return Hashcode value
+     */
+    public int hashCode() {
+        return 11*name.hashCode() + 13* country.hashCode();
+    }
 }
