@@ -161,8 +161,8 @@ public class Country {
      * @return true if the countries are the same else false
      */
     public boolean equals(Object o) {
-        if(this.equals(o)) {return true;}
-        if(o.equals(null)) {return false;}
+        if(this == o) {return true;}
+        if(o == null) {return false;}
         if(getClass() != o.getClass()) {return false;}
         Country other = (Country) o;
         return this.name.equals(other.name);

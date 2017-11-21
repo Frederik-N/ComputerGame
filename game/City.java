@@ -89,9 +89,9 @@ public class City implements Comparable<City> {
      * @return True if this object is the same as the other, otherwise false.
      */
     public boolean equals(Object o) {
-        if(this.equals(o)) { return true;}
-        if (o.equals(null)) { return false;}
-        if(!getClass().equals(o.getClass())) {return false;}
+        if(this == o) { return true;}
+        if (o == null) { return false;}
+        if(getClass() != (o.getClass())) {return false;}
         City city = (City) o;
         return name.equals(city.getName()) && country.equals(city.getCountry());
     }
