@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 public class CityTest {
     private Game game;
     private Country country1;
-    private City cityA, cityB, cityC;
+    private City cityA, cityA2, cityB, cityC;
 
     @Before
     public void setUp() throws Exception {
@@ -21,6 +21,7 @@ public class CityTest {
         country1.setGame(game);
 
         cityA = new City("City A", 80, country1);
+        cityA2 = new City("City A", 80, country1);
         cityB = new City("City B", 60, country1);
         cityC = new City("City C", 40, country1);
     }
@@ -72,5 +73,16 @@ public class CityTest {
             assertEquals(cityA.getValue(), 80-bonus);
             cityA.reset();
         }
+    }
+
+    @Test
+    public void equals() throws Exception {
+        assertEquals(cityA.equals(cityA2), true);
+        assertEquals(cityA.equals(null), false);
+    }
+
+    @Test
+    public void hashCodeTest() throws Exception {
+        assertEquals(cityA.hashCode(), 11*cityA.getName().hashCode() + 13* cityA.getCountry().hashCode());
     }
 }

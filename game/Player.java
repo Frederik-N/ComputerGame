@@ -25,6 +25,16 @@ public class Player implements Comparable<Player> {
 		this.pos = pos;
 		money = 0;
 	}
+
+	/**
+	 * Instantiates a new GUI player with a specific position and amount of money
+	 * @param pos The position of this player
+	 * @param money The amount of money for this player
+	 */
+	public Player(Position pos, int money) {
+		this.pos = pos;
+		this.money = money;
+	}
 	
 	/**
 	 * Resets this player (sets its money back to 0).
