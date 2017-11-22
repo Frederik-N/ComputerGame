@@ -44,9 +44,18 @@ public class CountryTest {
         network2.put(cityF, roadsF);
         network2.put(cityG, roadsG);
 
+        country1.addRoads(cityA, cityB, 4);
+        country1.addRoads(cityA, cityC, 3);
+        country1.addRoads(cityA, cityD, 5);
+        country1.addRoads(cityB, cityD, 2);
         country1.addRoads(cityC, cityD, 2);
         country1.addRoads(cityC, cityE, 4);
         country1.addRoads(cityD, cityF, 3);
+        country2.addRoads(cityE, cityC, 4);
+        country2.addRoads(cityE, cityF, 2);
+        country2.addRoads(cityE, cityG, 5);
+        country2.addRoads(cityF, cityD, 3);
+        country2.addRoads(cityF, cityG, 6);
     }
 
     @Test
@@ -98,28 +107,31 @@ public class CountryTest {
         List<Road> roadsA = new ArrayList<>();
         List<Road> roadsB = new ArrayList<>();
         List<Road> roadsE = new ArrayList<>();
-        List<Road> roadsF = new ArrayList<>();
-        List<Road> roadsG = new ArrayList<>();
-
-
 
         /** Two cities within the same country    */
-        roadsA.add(new Road(cityA, cityB, 6));
-        roadsB.add(new Road(cityB, cityA, 6));
+        roadsA.add(new Road(cityA, cityB, 4)); roadsA.add(new Road(cityA, cityC, 3)); roadsA.add(new Road(cityA, cityD, 5)); roadsA.add(new Road(cityA, cityB, 6));
+        roadsB.add(new Road(cityB, cityA, 4)); roadsB.add(new Road(cityB, cityD, 2)); roadsB.add(new Road(cityB, cityA, 6));
         country1.addRoads(cityA, cityB, 6);
-        assertEquals(country1.getRoads(cityA).get(0).getTo(),roadsA.get(0).getTo());
-        assertEquals(country1.getRoads(cityB).get(0).getTo(),roadsB.get(0).getTo());
+        assertEquals(country1.getRoads(cityA).get(3).getTo(), roadsA.get(3).getTo());
+        assertEquals(country1.getRoads(cityB).get(2).getTo(),roadsB.get(2).getTo());
+        assertEquals(country1.getRoads(cityA).get(3).getFrom(), roadsA.get(3).getFrom());
+        assertEquals(country1.getRoads(cityB).get(2).getFrom(),roadsB.get(2).getFrom());
+        assertEquals(country1.getRoads(cityA).get(3).getLength(), roadsA.get(3).getLength());
+        assertEquals(country1.getRoads(cityB).get(2).getLength(),roadsB.get(2).getLength());
 
         /** Two cities in different countries    */
+        roadsE.add(new Road(cityE, cityC, 4)); roadsE.add(new Road(cityE, cityF, 2)); roadsE.add(new Road(cityE, cityG, 5));
         roadsA.add(new Road(cityA, cityE, 6));
         country1.addRoads(cityA, cityE, 6);
-        assertEquals(country1.getRoads(cityA).get(1).getTo(), roadsA.get(1).getTo());
+        assertEquals(country1.getRoads(cityA).get(4).getTo(), roadsA.get(4).getTo());
+        assertEquals(country1.getRoads(cityA).get(4).getFrom(), roadsA.get(4).getFrom());
+        assertEquals(country1.getRoads(cityA).get(4).getLength(), roadsA.get(4).getLength());
         assertEquals(country2.getRoads(cityE).size(), roadsE.size());
 
         /** Two cities not in the country    */
-        country1.addRoads(cityG, cityF, 4);
-        assertEquals(country2.getRoads(cityF).size(),roadsF.size());
-        assertEquals(country2.getRoads(cityG).size(),roadsG.size());
+        country2.addRoads(cityA, cityB, 1);
+        assertEquals(country1.getRoads(cityA).size(),roadsA.size());
+        assertEquals(country1.getRoads(cityB).size(),roadsB.size());
     }
 
     @Test
