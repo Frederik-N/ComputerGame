@@ -83,11 +83,16 @@ public class City implements Comparable<City> {
         return bonus;
     }
 
+    public int arrive (Player p) {
+        return arrive();
+    }
+
     /**
      *  Indicates whether an other city is equal to this one.
      * @param o The object that is being compared.
      * @return True if this object is the same as the other, otherwise false.
      */
+    @Override
     public boolean equals(Object o) {
         if(this == o) { return true;}
         if (o == null) { return false;}
