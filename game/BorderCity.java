@@ -19,9 +19,10 @@ public class BorderCity extends City {
     @Override
     public int arrive(Player p) {
         if (p.getCountryFrom() != getCountry()) {
-            int toll = ((p.getMoney() * (getCountry().getGame().getSettings().getTollToBePaid()/100)));
+            int toll = ((p.getMoney() * (getCountry().getGame().getSettings().getTollToBePaid()))/100);
+            int bonus = super.arrive();
             changeValue(toll);
-            return super.arrive() - toll;
+            return bonus - toll;
         }
         return super.arrive();
     }
