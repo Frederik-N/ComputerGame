@@ -1,11 +1,11 @@
 public class BorderCity extends City {
 
     /**
-     * Creates a new City object
+     * Creates a new BorderCity object
      *
-     * @param name    Name of this city
-     * @param value   Value of this city
-     * @param country Which country the city is placed within
+     * @param name    Name of this bordercity
+     * @param value   Value of this bordercity
+     * @param country Which country the bordercity is placed within
      */
     public BorderCity(String name, int value, Country country) {
         super(name, value, country);

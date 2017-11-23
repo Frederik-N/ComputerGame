@@ -1,4 +1,4 @@
-public class CapitalCity extends City {
+public class CapitalCity extends BorderCity {
     /**
      * Creates a new City object
      *
@@ -8,5 +8,13 @@ public class CapitalCity extends City {
      */
     public CapitalCity(String name, int value, Country country) {
         super(name, value, country);
+    }
+
+    @Override
+    public int arrive(Player p) {
+        int arrive = super.arrive(p);
+        int consumption = p.getCountry().getGame().getRandom().nextInt(p.getMoney()+1);
+        changeValue(consumption);
+        return arrive-consumption;
     }
 }
