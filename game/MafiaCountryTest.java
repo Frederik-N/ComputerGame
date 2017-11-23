@@ -61,7 +61,13 @@ public class MafiaCountryTest {
         country2.addRoads(cityF, cityD, 3);
         country2.addRoads(cityF, cityG, 6);
     }
-
+    @Test
+    public void constructor() {
+        Map<City, List<Road>> networkTest = new HashMap<>();
+        MafiaCountry countryTest = new MafiaCountry("Test Country", networkTest);
+        assertEquals(countryTest.getName(), "Test Country");
+        assertEquals(countryTest.getNetwork(), networkTest);
+    }
     @Test
     public void bonus() throws Exception {
         for(int seed = 0; seed<1000; seed++) {

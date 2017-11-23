@@ -10,20 +10,25 @@ import static org.junit.Assert.*;
 public class CityTest {
     private Game game;
     private Country country1;
-    private City cityA, cityA2, cityB, cityC;
+    private MafiaCountry country2;
+    private City cityA, cityA2, cityB, cityC, cityD;
 
     @Before
     public void setUp() throws Exception {
         game = new Game(0);
         Map<City, List<Road>> network1 = new HashMap<>();
+        Map<City, List<Road>> network2 = new HashMap<>();
 
         country1 = new Country("Country 1", network1);
+        country2 = new MafiaCountry("Country 2", network2);
+        country2.setGame(game);
         country1.setGame(game);
 
         cityA = new City("City A", 80, country1);
         cityA2 = new City("City A", 80, country1);
         cityB = new City("City B", 60, country1);
         cityC = new City("City C", 40, country1);
+        cityD = new City("city D", 30, country2);
     }
 
     @Test
@@ -72,6 +77,22 @@ public class CityTest {
             assertEquals(arrive, bonus);
             assertEquals(cityA.getValue(), 80-bonus);
             cityA.reset();
+        }
+
+        for (int i=0; i<1000; i++) {
+            game.getRandom().setSeed(i);
+            int bonus = country2.bonus(30);
+            game.getRandom().setSeed(i);
+            int arrive = cityD.arrive();
+            assertEquals(arrive, bonus);
+            if(bonus>0) {
+                assertEquals(cityD.getValue(), 30 - bonus);
+            }
+            else {
+                assertEquals(cityD.getValue(), 30);
+            }
+            cityA.reset();
+            cityD.reset();
         }
     }
 
