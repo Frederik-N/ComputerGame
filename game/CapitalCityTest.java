@@ -23,9 +23,9 @@ public class CapitalCityTest {
         country2 = new Country("Country 2", network2);
         country2.setGame(game);
 
-        cityA = new BorderCity("City A", 80, country1);
-        cityB = new BorderCity("City B", 60, country1);
-        cityC = new BorderCity("City C", 40, country2);
+        cityA = new CapitalCity("City A", 80, country1);
+        cityB = new CapitalCity("City B", 60, country1);
+        cityC = new CapitalCity("City C", 40, country2);
     }
 
     @Test
@@ -35,9 +35,12 @@ public class CapitalCityTest {
             game.getRandom().setSeed(i);
             int bonus = country2.bonus(40);
             int toll = ((p.getMoney() * (cityC.getCountry().getGame().getSettings().getTollToBePaid()))/100);
-            int consumption = game.getRandom().nextInt(p.getMoney()+1);;
             game.getRandom().setSeed(i);
             int arrive = cityC.arrive(p);
+            game.getRandom().setSeed(i);
+            System.out.println(p.getMoney());
+            int consumption = p.getCountry().getGame().getRandom().nextInt(p.getMoney()+1);
+            System.out.println(consumption);
             assertEquals(arrive, bonus-toll-consumption);
             assertEquals(cityC.getValue(), 40+(toll-bonus)+consumption);
             cityC.reset();
