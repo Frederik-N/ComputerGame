@@ -207,7 +207,7 @@ public class CountryTest {
         Country countryTest = new Country("Country Test", networkTest);
         assertEquals(countryTest.getCities(),cities);
         /** Test with a country with cities */
-        cities.add(cityA); cities.add(cityB); cities.add(cityC); cities.add(cityD);
+        cities.add(cityA); cities.add(cityB); cities.add(cityD);
         assertEquals(country1.getCities(), cities);
     }
 
