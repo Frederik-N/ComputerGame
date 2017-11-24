@@ -91,7 +91,6 @@ public class CityTest {
             else {
                 assertEquals(cityD.getValue(), 30);
             }
-            cityA.reset();
             cityD.reset();
         }
     }
