@@ -28,7 +28,7 @@ public class CityTest {
         cityA2 = new City("City A", 80, country1);
         cityB = new City("City B", 60, country1);
         cityC = new City("City C", 40, country1);
-        cityD = new City("city D", 30, country2); 
+        cityD = new City("city D", 30, country2);
     }
 
     @Test
@@ -71,24 +71,16 @@ public class CityTest {
     public void arrive() throws Exception {
         for (int i=0; i<1000; i++) {
             game.getRandom().setSeed(i);
-            int bonus = country1.bonus(80);
-            game.getRandom().setSeed(i);
-            int arrive = cityA.arrive();
-            assertEquals(arrive, bonus);
-            assertEquals(cityA.getValue(), 80-bonus);
-            cityA.reset();
-        }
-
-        for (int i=0; i<1000; i++) {
-            game.getRandom().setSeed(i);
             int bonus = country2.bonus(30);
             game.getRandom().setSeed(i);
             int arrive = cityD.arrive();
             assertEquals(arrive, bonus);
             if(bonus>0) {
+                assertEquals(arrive, bonus);
                 assertEquals(cityD.getValue(), 30 - bonus);
             }
             else {
+                assertEquals(arrive, bonus);
                 assertEquals(cityD.getValue(), 30);
             }
             cityD.reset();
@@ -98,6 +90,7 @@ public class CityTest {
     @Test
     public void equals() throws Exception {
         assertEquals(cityA.equals(cityA2), true);
+        assertEquals(cityA.equals(cityB), false);
         assertEquals(cityA.equals(null), false);
     }
 
