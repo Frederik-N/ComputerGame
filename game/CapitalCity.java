@@ -13,7 +13,7 @@ public class CapitalCity extends BorderCity {
     @Override
     public int arrive(Player p) {
         int arrive = super.arrive(p);
-        int consumption = p.getCountry().getGame().getRandom().nextInt(p.getMoney()+1+arrive);
+        int consumption = p.getCountry().getGame().getRandom().nextInt(p.getMoney()+arrive+1);
         changeValue(consumption);
         return arrive-consumption;
     }
