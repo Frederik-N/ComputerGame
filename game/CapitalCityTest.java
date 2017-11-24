@@ -35,12 +35,9 @@ public class CapitalCityTest {
             game.getRandom().setSeed(i);
             int bonus = country2.bonus(40);
             int toll = ((p.getMoney() * (cityC.getCountry().getGame().getSettings().getTollToBePaid()))/100);
+            int consumption = p.getCountry().getGame().getRandom().nextInt(p.getMoney()+1);
             game.getRandom().setSeed(i);
             int arrive = cityC.arrive(p);
-            game.getRandom().setSeed(i);
-            System.out.println(p.getMoney());
-            int consumption = p.getCountry().getGame().getRandom().nextInt(p.getMoney()+1);
-            System.out.println(consumption);
             assertEquals(arrive, bonus-toll-consumption);
             assertEquals(cityC.getValue(), 40+(toll-bonus)+consumption);
             cityC.reset();
@@ -53,10 +50,11 @@ public class CapitalCityTest {
             Player p = new Player(new Position(cityA, cityB, 0), 250);
             game.getRandom().setSeed(i);
             int bonus = country1.bonus(60);
+            int consumption = p.getCountry().getGame().getRandom().nextInt(p.getMoney()+1);
             game.getRandom().setSeed(i);
             int arrive = cityB.arrive(p);
-            assertEquals(arrive, bonus);
-            assertEquals(cityB.getValue(), 60-bonus);
+            assertEquals(arrive, bonus-consumption);
+            assertEquals(cityB.getValue(), 60-bonus+consumption);
             cityB.reset();
         }
     }
