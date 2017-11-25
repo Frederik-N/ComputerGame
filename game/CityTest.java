@@ -96,6 +96,8 @@ public class CityTest {
 
     @Test
     public void hashCodeTest() throws Exception {
-        assertEquals(cityA.hashCode(), 11*cityA.getName().hashCode() + 13* cityA.getCountry().hashCode());
+        int hashCodeA = cityA.hashCode();
+        assertEquals(cityA.hashCode(), hashCodeA);
+        assertNotEquals(cityA.hashCode(), cityB.hashCode());
     }
 }

@@ -220,7 +220,9 @@ public class CountryTest {
 
     @Test
     public void hashCodeTest() throws Exception {
-        assertEquals(country1.hashCode(), 11*country1.getName().hashCode());
+        int hashCode1 = country1.hashCode();
+        assertEquals(country1.hashCode(), hashCode1);
+        assertNotEquals(country1.hashCode(), country2.hashCode());
     }
 
 }
