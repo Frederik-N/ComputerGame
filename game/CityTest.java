@@ -75,12 +75,7 @@ public class CityTest {
             game.getRandom().setSeed(i);
             int arrive = cityA.arrive();
             assertEquals(arrive, bonus);
-            if(bonus>0) {
-                assertEquals(cityA.getValue(), 80 - bonus);
-            }
-            else {
-                assertEquals(cityA.getValue(), 80);
-            }
+            assertEquals(cityA.getValue(), 80 - bonus);
             cityA.reset();
         }
     }

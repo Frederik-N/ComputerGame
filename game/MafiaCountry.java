@@ -3,7 +3,6 @@ import java.util.Map;
 
 public class MafiaCountry extends Country {
 
-
     /**
      * Creates a new Country object.
      *
