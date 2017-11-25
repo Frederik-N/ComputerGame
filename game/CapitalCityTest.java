@@ -53,7 +53,6 @@ public class CapitalCityTest {
             int consumption = p.getCountry().getGame().getRandom().nextInt(p.getMoney()+(bonus)+1);
             game.getRandom().setSeed(i);
             int arrive = cityB.arrive(p);
-            game.getRandom().setSeed(i);
             assertEquals(arrive, bonus-consumption);
             assertEquals(cityB.getValue(), 60-bonus+consumption);
             cityB.reset();
