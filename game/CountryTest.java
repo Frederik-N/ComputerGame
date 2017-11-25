@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 
 public class CountryTest {
     private Game game;
-    private Country country1, country2, country1copy, countrynull;
+    private Country country1, country2, country1copy;
     private City cityA, cityB, cityC, cityD, cityE, cityF, cityG;
 
     @Before
@@ -16,7 +16,6 @@ public class CountryTest {
         Map<City, List<Road>> network2 = new HashMap<>();
 
         country1copy = new Country("Country 1", network1);
-        countrynull = new Country(null, null);
         country1 = new Country("Country 1", network1);
         country2 = new Country("Country 2", network2);
         country1.setGame(game);
