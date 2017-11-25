@@ -89,6 +89,8 @@ public class CityTest {
 
     @Test
     public void equals() throws Exception {
+        assertEquals(cityA.equals(cityA), true);
+        assertEquals(cityA.equals(country1), false);
         assertEquals(cityA.equals(cityA2), true);
         assertEquals(cityA.equals(cityB), false);
         assertEquals(cityA.equals(null), false);

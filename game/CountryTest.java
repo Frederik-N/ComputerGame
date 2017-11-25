@@ -218,6 +218,7 @@ public class CountryTest {
         assertEquals(country1.equals(cityA), false);
         assertEquals(country1.equals(country1copy), true);
         assertEquals(country1.equals(null), false);
+        assertEquals(country1.equals(country2), false);
 
     }
 
