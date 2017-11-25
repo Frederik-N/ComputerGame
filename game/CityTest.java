@@ -77,7 +77,6 @@ public class CityTest {
             assertEquals(arrive, bonus);
             assertEquals(cityA.getValue(), 80 - bonus);
             cityA.reset();
-            country1.reset();
         }
     }
 
@@ -96,7 +95,6 @@ public class CityTest {
                 assertEquals(cityD.getValue(), 30);
             }
             cityD.reset();
-            country2.reset();
         }
     }
 
