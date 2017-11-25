@@ -71,16 +71,32 @@ public class CityTest {
     public void arrive() throws Exception {
         for (int i=0; i<1000; i++) {
             game.getRandom().setSeed(i);
+            int bonus = country1.bonus(80);
+            game.getRandom().setSeed(i);
+            int arrive = cityA.arrive();
+            assertEquals(arrive, bonus);
+            if(bonus>0) {
+                assertEquals(cityA.getValue(), 80 - bonus);
+            }
+            else {
+                assertEquals(cityA.getValue(), 80);
+            }
+            cityA.reset();
+        }
+    }
+
+    @Test
+    public void arriveMafia() throws Exception {
+        for (int i=0; i<1000; i++) {
+            game.getRandom().setSeed(i);
             int bonus = country2.bonus(30);
             game.getRandom().setSeed(i);
             int arrive = cityD.arrive();
             assertEquals(arrive, bonus);
             if(bonus>0) {
-                assertEquals(arrive, bonus);
                 assertEquals(cityD.getValue(), 30 - bonus);
             }
             else {
-                assertEquals(arrive, bonus);
                 assertEquals(cityD.getValue(), 30);
             }
             cityD.reset();
