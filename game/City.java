@@ -1,7 +1,7 @@
 /**
  * A city is placed within a country and has a specific value, that reduces as the players arrive
  * @author Jonas Madsen || Frederik Nielsen
- * @version 18.11.2017
+ * @version 26.11.2017
  */
 public class City implements Comparable<City> {
     /** Name of this city */
@@ -74,8 +74,8 @@ public class City implements Comparable<City> {
     }
 
     /**
-     * Rolls a random number(bonus) and subtracts it from value.
-     * @return bonus that were substracted from value
+     * Rolls a random number(bonus) and subtracts it from value if bonus > 0.
+     * @return bonus
      */
     public int arrive() {
         int bonus = country.bonus(value);
@@ -86,6 +86,11 @@ public class City implements Comparable<City> {
         return bonus;
     }
 
+    /**
+     * Makes a player roll a random number(bonus) and subtracts it from value if bonus > 0.
+     * @param p A player.
+     * @return arrive() which returns bonus.
+     */
     public int arrive (Player p) {
         return arrive();
     }

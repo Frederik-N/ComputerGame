@@ -2,7 +2,7 @@ import java.util.*;
 /**
  * A country that contains cities and roads between cities.
  * @author Jonas Madsen || Frederik Nielsen
- * @version 18.11.2017
+ * @version 26.11.2017
  */
 public class Country {
     /** name of this country */

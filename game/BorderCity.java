@@ -1,3 +1,8 @@
+/**
+ * A borderCity is placed within a country and has a specific value, that changes when the players arrive.
+ * @author Jonas Madsen || Frederik Nielsen
+ * @version 26.11.2017
+ */
 public class BorderCity extends City {
 
     /**
@@ -12,9 +17,9 @@ public class BorderCity extends City {
     }
 
     /**
-     *
-     * @param p
-     * @return
+     *  Makes the player pay a toll additional to the bonus he gets, if he arrives in another country.
+     * @param p A player.
+     * @return super.arrive() which returns a bonus or it subtracts a toll from bonus.
      */
     @Override
     public int arrive(Player p) {
