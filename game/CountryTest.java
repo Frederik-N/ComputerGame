@@ -124,16 +124,6 @@ public class CountryTest {
         assertEquals(country1.getRoads(cityA).get(1).getFrom(), roadsA.get(1).getFrom());
         assertEquals(country2.getRoads(cityC), roadsC);
 
-        // Virker ikke, da addroads ikke tilføjer denne vej? ved ikke hvorfor
-//        /** Two cities in different countries reversed    */
-//        roadsC.add(new Road(cityC, cityA, 4));
-//        country2.addRoads(cityC, cityA, 4);
-//        assertEquals(country2.getRoads(cityC).size(), roadsC.size());
-//        assertEquals(country2.getRoads(cityC).get(0).getLength(),roadsC.get(0).getLength());
-//        assertEquals(country2.getRoads(cityC).get(0).getTo(), roadsC.get(0).getTo());
-//        assertEquals(country2.getRoads(cityC).get(0).getFrom(), roadsC.get(0).getFrom());
-//        assertEquals(country1.getRoads(cityA), roadsA);
-
         /** Two cities not in the country    */
         country1.addRoads(cityC, cityD, 4);
         assertEquals(country2.getRoads(cityC),roadsC);

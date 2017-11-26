@@ -11,7 +11,7 @@ public class CityTest {
     private Game game;
     private Country country1;
     private MafiaCountry country2;
-    private City cityA, cityA2, cityB, cityC, cityD;
+    private City cityA, cityA2, cityB, cityC, cityD, cityACountry, cityAName, cityAValue;
 
     @Before
     public void setUp() throws Exception {
@@ -26,6 +26,8 @@ public class CityTest {
 
         cityA = new City("City A", 80, country1);
         cityA2 = new City("City A", 80, country1);
+        cityACountry = new City("City B", 40, country1);
+        cityAName = new City("City A", 30, country2);
         cityB = new City("City B", 60, country1);
         cityC = new City("City C", 40, country1);
         cityD = new City("city D", 80, country2);
@@ -101,6 +103,8 @@ public class CityTest {
     @Test
     public void equals() throws Exception {
         assertEquals(cityA.equals(cityA), true);
+        assertEquals(cityA.equals(cityACountry), false);
+        assertEquals(cityA.equals(cityAName), false);
         assertEquals(cityA.equals(country1), false);
         assertEquals(cityA.equals(cityA2), true);
         assertEquals(cityA.equals(cityB), false);
@@ -112,5 +116,7 @@ public class CityTest {
         int hashCodeA = cityA.hashCode();
         assertEquals(cityA.hashCode(), hashCodeA);
         assertNotEquals(cityA.hashCode(), cityB.hashCode());
+        assertNotEquals(cityA.hashCode(), cityACountry.hashCode());
+        assertNotEquals(cityA.hashCode(), cityAName.hashCode());
     }
 }
