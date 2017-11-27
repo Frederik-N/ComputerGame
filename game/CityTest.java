@@ -107,7 +107,7 @@ public class CityTest {
         assertEquals(cityA.equals(cityAName), false);
         assertEquals(cityA.equals(country1), false);
         assertEquals(cityA.equals(cityA2), true);
-        assertEquals(cityA.equals(cityB), false);
+        assertEquals(cityA.equals(cityD), false);
         assertEquals(cityA.equals(null), false);
     }
 
