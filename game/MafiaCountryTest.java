@@ -36,8 +36,8 @@ public class MafiaCountryTest {
                     values.add(-bonus);
                 }
             }
-            assertTrue( 275000 < loss && loss < 325000);
-            assertTrue(9000 < robs && robs < 11000);
+            assertTrue( 285000 < loss && loss < 315000);
+            assertTrue(9500 < robs && robs < 10500);
             assertEquals(values.size(), 41);
         }
     }
