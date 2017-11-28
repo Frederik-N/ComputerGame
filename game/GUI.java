@@ -500,7 +500,7 @@ public class GUI {
                 try{
                     minLose = Integer.parseInt(minLossTextField.getText());
                     maxLose  = Integer.parseInt(maxLossTextField.getText());
-                    if(minLose < 0 || maxLose < 0 || minLose > 100 || maxLose > 100 || minLose < maxLose){
+                    if(minLose < 0 || maxLose < 0 || minLose > 100 || maxLose > 100 || minLose > maxLose){
                         JOptionPane.showMessageDialog(frame, "'Max loss' and 'Min loss' must be between 0 and 100, and 'Max loss' should be higher than 'Min loss'.", "Malformed input", JOptionPane.ERROR_MESSAGE);
                         return;
                     }
