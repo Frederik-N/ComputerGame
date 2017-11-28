@@ -394,7 +394,7 @@ public class GUI {
         JLabel tollSizeLabel = new JLabel("Toll to be paid:");
         tollAndRobberyPanel.add(tollSizeLabel);
         
-        tollSizeTextField = new JTextField("20", 10);
+        tollSizeTextField = new JTextField("20", 20);
         tollAndRobberyPanel.add(tollSizeTextField);
 
         JLabel percTollSize = new JLabel("% in [0,50]");
@@ -404,7 +404,7 @@ public class GUI {
         JLabel muggingLabel = new JLabel("Risk of robbery:");                       
         tollAndRobberyPanel.add(muggingLabel);
 
-        muggingTextField = new JTextField("20", 10);
+        muggingTextField = new JTextField("20", 20);
         tollAndRobberyPanel.add(muggingTextField);
 
         JLabel percMugging = new JLabel("% in [0,50]");
