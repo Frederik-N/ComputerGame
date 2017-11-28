@@ -422,12 +422,12 @@ public class GUI {
         JLabel maxSizeLabel = new JLabel("Max. loss when robbed:");
         tollAndRobberyPanel.add(maxSizeLabel);
 
-        maxLossTextField = new JTextField("10", 10);
+        maxLossTextField = new JTextField("50", 50);
         tollAndRobberyPanel.add(maxLossTextField);
 
         JLabel euroMaxSize = new JLabel("€ in [0,100]");
         tollAndRobberyPanel.add(euroMaxSize);
-        
+
         //Speed options
         JPanel speedPanel = new JPanel();
         speedPanel.setLayout(new FlowLayout());
