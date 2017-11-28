@@ -72,7 +72,7 @@ public class GUI {
     private JCheckBox random, greedy, smart;
     
     /** Textfields */
-    private JTextField tollSizeTextField, muggingTextField;
+    private JTextField tollSizeTextField, muggingTextField, minLossTextField, maxLossTextField;
     
     /** Buttons */
     private JButton optionsButton, pauseResumeButton, abortButton;
@@ -98,6 +98,7 @@ public class GUI {
     
     /** The current game speed (0 = stop, 1 = slow, .. ) */
     public static int speed = 2;
+
     
     /**
      * Constructor for the GUI class.
@@ -385,8 +386,8 @@ public class GUI {
         
         //Text input
         JPanel tollAndRobberyPanel = new JPanel();
-        tollAndRobberyPanel.setLayout(new GridLayout(2,3,5,5));                    
-        
+        tollAndRobberyPanel.setLayout(new GridLayout(4,3,5,5));
+
         //Toll size
         JLabel tollSizeLabel = new JLabel("Toll to be paid:");
         tollAndRobberyPanel.add(tollSizeLabel);
@@ -406,6 +407,26 @@ public class GUI {
 
         JLabel percMugging = new JLabel("% in [0,50]");
         tollAndRobberyPanel.add(percMugging);
+
+        //MinLoss
+        JLabel minSizeLabel = new JLabel("Min. loss when robbed:");
+        tollAndRobberyPanel.add(minSizeLabel);
+
+        minLossTextField = new JTextField("10", 10);
+        tollAndRobberyPanel.add(minLossTextField);
+
+        JLabel euroMinSize = new JLabel("€ in [0,100]");
+        tollAndRobberyPanel.add(euroMinSize);
+
+        //MaxLoss
+        JLabel maxSizeLabel = new JLabel("Max. loss when robbed:");
+        tollAndRobberyPanel.add(maxSizeLabel);
+
+        maxLossTextField = new JTextField("10", 10);
+        tollAndRobberyPanel.add(maxLossTextField);
+
+        JLabel euroMaxSize = new JLabel("€ in [0,100]");
+        tollAndRobberyPanel.add(euroMaxSize);
         
         //Speed options
         JPanel speedPanel = new JPanel();
