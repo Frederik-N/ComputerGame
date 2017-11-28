@@ -78,6 +78,7 @@ public class CityTest {
             int arrive = cityA.arrive();
             assertEquals(arrive, bonus);
             assertEquals(cityA.getValue(), 80 - bonus);
+            assertEquals(country1.bonus(0), 0);
             cityA.reset();
         }
     }
@@ -115,7 +116,7 @@ public class CityTest {
     public void hashCodeTest() throws Exception {
         int hashCodeA = cityA.hashCode();
         assertEquals(cityA.hashCode(), hashCodeA);
-        assertNotEquals(cityA.hashCode(), cityB.hashCode());
+        assertNotEquals(cityA.hashCode(), cityD.hashCode());
         assertNotEquals(cityA.hashCode(), cityACountry.hashCode());
         assertNotEquals(cityA.hashCode(), cityAName.hashCode());
     }

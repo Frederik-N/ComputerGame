@@ -282,7 +282,7 @@ public class GUI {
     public JPanel createButtonPanel(){
         //Initialize the JPanel, using a GridLayout
         JPanel buttons = new JPanel();
-        buttons.setLayout(new GridLayout(1,3));
+        buttons.setLayout(new GridLayout(2,3));
         
         //Instantiate the 'New'-button
         JButton newButton = new JButton("New game");
@@ -333,6 +333,25 @@ public class GUI {
             }
         });
         buttons.add(optionsButton);
+
+        //Instantiate the 'Play log'-button
+        JButton playLogButton = new JButton("Play log...");
+        //Connect an ActionListener
+        playLogButton.addActionListener(e -> {
+            testPlayButton();
+        });
+        //Add it to the button panel
+        buttons.add(playLogButton);
+
+        //Instantiate the 'Save log..'-button
+        JButton saveLogButton = new JButton("Save log...");
+        //Connect an ActionListener
+        saveLogButton.addActionListener(e -> {
+            testSaveButton();
+        });
+        //Add it to the button panel
+        buttons.add(saveLogButton);
+
         //Return the JPanel
         return buttons;
     }
