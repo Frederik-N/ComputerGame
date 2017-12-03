@@ -28,6 +28,7 @@ public class CityTest {
         cityA2 = new City("City A", 80, country1);
         cityACountry = new City("City B", 40, country1);
         cityAName = new City("City A", 30, country2);
+        cityAValue = new City("City A", 10, country1);
         cityB = new City("City B", 60, country1);
         cityC = new City("City C", 40, country1);
         cityD = new City("city D", 80, country2);
@@ -119,5 +120,6 @@ public class CityTest {
         assertNotEquals(cityA.hashCode(), cityD.hashCode());
         assertNotEquals(cityA.hashCode(), cityACountry.hashCode());
         assertNotEquals(cityA.hashCode(), cityAName.hashCode());
+        assertEquals(cityA.hashCode(), cityAValue.hashCode());
     }
 }
