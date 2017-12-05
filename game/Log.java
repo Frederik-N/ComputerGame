@@ -1,3 +1,5 @@
+//import com.sun.xml.internal.fastinfoset.util.StringArray;
+
 import java.awt.Color;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -51,6 +53,18 @@ public class Log {
      * @throws LogException May be thrown if it is unable to properly create this log.
      */
     public Log(String log) throws SettingsException, LogException{
+        String[] splitString = log.split("\r\n");
+        seed = Integer.parseInt(splitString[0]);
+
+        String[] settingsString = Arrays.copyOfRange(splitString, 1, 7);
+        settings = new Settings(settingsString);
+
+        Map<Integer, String> choicesMap = new HashMap<>();
+        for(int i = 7; i<splitString.length; i++) {
+            String[] s = splitString[i].split(" ");
+            choicesMap.put(Integer.parseInt(s[0]), s[1]);
+        }
+        choices = choicesMap;
     }
     
     /**
@@ -90,7 +104,19 @@ public class Log {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(seed);
+        builder.append('\n');
+        builder.append(settings.toString());
+
+        for(Integer c : choices.keySet()) {
+            builder.append(c);
+            builder.append(" ");
+            builder.append(choices.get(c));
+            builder.append('\n');
+        }
+        return builder.toString();
     }
     
     /**

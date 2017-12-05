@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Road
-comment0.text=\r\n\ Represents\ a\ road\ between\ two\ cities.\r\n\ A\ one-directional\ road\ is\ made\ between\ two\ cities\ and\ has\ a\ specific\ length.\r\n\ Therefore\ a\ road\ from\ city\ A\ to\ city\ B\ is\ not\ the\ same\ as\ from\ city\ B\ to\ city\ A.\r\n\r\n\ @author\ Frederik\ Nielsen\ ||\ Jonas\ Madsen\r\n\ @version\ 14.11.2017\r\n
+comment0.text=\r\n\ Represents\ a\ road\ between\ two\ cities.\r\n\ A\ one-directional\ road\ is\ made\ between\ two\ cities\ and\ has\ a\ specific\ length.\r\n\ Therefore\ a\ road\ from\ city\ A\ to\ city\ B\ is\ not\ the\ same\ as\ from\ city\ B\ to\ city\ A.\r\n\r\n\ @author\ Frederik\ Nielsen\ ||\ Jonas\ Madsen\r\n\ @version\ 18.11.2017\r\n
 comment1.params=from\ to\ length
 comment1.target=Road(City,\ City,\ int)
 comment1.text=\r\n\ creates\ a\ new\ Road\ object.\r\n\ @param\ from\ \ \ the\ city\ the\ road\ starts\ in.\r\n\ @param\ to\ \ \ \ \ the\ city\ the\ road\ ends\ in.\r\n\ @param\ length\ the\ length\ of\ the\ road.\r\n

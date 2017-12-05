@@ -1,9 +1,15 @@
 #BlueJ class context
 comment0.target=City
-comment0.text=\r\n\ A\ city\ is\ placed\ within\ a\ country\ and\ has\ a\ specific\ value,\ that\ reduces\ as\ the\ players\ arrive\r\n\ @author\ Jonas\ Madsen\ ||\ Frederik\ Nielsen\r\n\ @version\ 14.11.2017\r\n
+comment0.text=\r\n\ A\ city\ is\ placed\ within\ a\ country\ and\ has\ a\ specific\ value,\ that\ reduces\ as\ the\ players\ arrive\r\n\ @author\ Jonas\ Madsen\ ||\ Frederik\ Nielsen\r\n\ @version\ 26.11.2017\r\n
 comment1.params=name\ value\ country
 comment1.target=City(java.lang.String,\ int,\ Country)
 comment1.text=\r\n\ Creates\ a\ new\ City\ object\r\n\ @param\ name\ Name\ of\ this\ city\r\n\ @param\ value\ Value\ of\ this\ city\r\n\ @param\ country\ Which\ country\ the\ city\ is\ placed\ within\r\n
+comment10.params=o
+comment10.target=boolean\ equals(java.lang.Object)
+comment10.text=\r\n\ \ Indicates\ whether\ an\ other\ city\ is\ equal\ to\ this\ one.\r\n\ @param\ o\ The\ object\ that\ is\ being\ compared.\r\n\ @return\ True\ if\ this\ object\ is\ the\ same\ as\ the\ other,\ otherwise\ false.\r\n
+comment11.params=
+comment11.target=int\ hashCode()
+comment11.text=\r\n\ Returns\ a\ hashcode\ value\ for\ the\ object.\r\n\ @return\ Hashcode\ value\r\n
 comment2.params=
 comment2.target=int\ getValue()
 comment2.text=\r\n\ Returns\ the\ value\ for\ this\r\n\ @return\ value\ of\ city\r\n
@@ -24,5 +30,8 @@ comment7.target=int\ compareTo(City)
 comment7.text=\r\n\ Compares\ this\ city\ with\ specified\ city\ for\ ordering\r\n\ @param\ c\ city\ to\ be\ compared\r\n\ @return\ negative,\ 0\ or\ positive\ as\ this\ city\ is\ less\ than,\ equal\ to,\ or\ greater\ than\ the\ specified\ city\r\n
 comment8.params=
 comment8.target=int\ arrive()
-comment8.text=\r\n\ Rolls\ a\ random\ number(bonus)\ and\ subtracts\ it\ from\ value.\r\n\ @return\ bonus\ that\ were\ substracted\ from\ value\r\n
-numComments=9
+comment8.text=\r\n\ Rolls\ a\ random\ number(bonus)\ and\ subtracts\ it\ from\ value\ if\ bonus\ >\ 0.\r\n\ @return\ bonus\r\n
+comment9.params=p
+comment9.target=int\ arrive(Player)
+comment9.text=\r\n\ Makes\ a\ player\ roll\ a\ random\ number(bonus)\ and\ subtracts\ it\ from\ value\ if\ bonus\ >\ 0.\r\n\ @param\ p\ A\ player.\r\n\ @return\ arrive()\ which\ returns\ bonus.\r\n
+numComments=12

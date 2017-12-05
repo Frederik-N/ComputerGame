@@ -1,21 +1,27 @@
 #BlueJ class context
 comment0.target=Country
-comment0.text=\r\n\ A\ country\ that\ contains\ cities\ and\ roads\ between\ cities.\r\n\ @author\ Jonas\ Madsen\ ||\ Frederik\ Nielsen\r\n\ @version\ 14.11.2017\r\n
+comment0.text=\r\n\ A\ country\ that\ contains\ cities\ and\ roads\ between\ cities.\r\n\ @author\ Jonas\ Madsen\ ||\ Frederik\ Nielsen\r\n\ @version\ 26.11.2017\r\n
 comment1.params=name\ network
 comment1.target=Country(java.lang.String,\ java.util.Map)
 comment1.text=\r\n\ Creates\ a\ new\ Country\ object.\r\n\ @param\ name\ name\ of\ this\ country.\r\n\ @param\ network\ contains\ cities\ mapped\ to\ a\ list\ a\ roads.\r\n
 comment10.params=city
 comment10.target=Position\ position(City)
-comment10.text=\r\n\ Retuns\ the\ current\ position\ of\ the\ player\ in\ the\ city.\r\n\ @param\ city\ city\ from\ this\ country\r\n\ @return\ the\ current\ position\ of\ the\ player\ in\ the\ city.\r\n
+comment10.text=\r\n\ Retuns\ the\ current\ position\ of\ the\ player\ in\ the\ city.\r\n\ @param\ city\ city\r\n\ @return\ the\ current\ position\ of\ the\ player\ in\ the\ city.\r\n
 comment11.params=from\ to
 comment11.target=Position\ readyToTravel(City,\ City)
 comment11.text=\r\n\ Checks\ to\ see\ if\ the\ player\ is\ moving\ to\ a\ "correct"\ city\r\n\ @param\ from\ city\ that\ is\ being\ moved\ from\r\n\ @param\ to\ city\ that\ is\ being\ moved\ to\r\n\ @return\ position\ that\ the\ player\ is\ currently\ having.\r\n
 comment12.params=
 comment12.target=Game\ getGame()
-comment12.text=\r\n\ Returns\ the\ current\ game.\r\n\ @return\ te\ current\ game\r\n
+comment12.text=\r\n\ Returns\ the\ current\ game.\r\n\ @return\ the\ current\ game\r\n
 comment13.params=game
 comment13.target=void\ setGame(Game)
 comment13.text=\r\n\ Changes\ this\ game\ to\ a\ specific\ game.\r\n\ @param\ game\ a\ specific\ game.\r\n
+comment14.params=o
+comment14.target=boolean\ equals(java.lang.Object)
+comment14.text=\r\n\ Indicates\ whether\ an\ other\ country\ is\ equal\ to\ this\ one\r\n\ @param\ o\ the\ country\ with\ which\ to\ compare\r\n\ @return\ true\ if\ the\ countries\ are\ the\ same\ else\ false\r\n
+comment15.params=
+comment15.target=int\ hashCode()
+comment15.text=\r\n\ Returns\ a\ hash\ code\ value\ for\ the\ country\r\n\ @return\ a\ hash\ code\ value\ for\ the\ country\r\n
 comment2.params=
 comment2.target=java.lang.String\ getName()
 comment2.text=\r\n\ Returns\ name\ of\ this\ country.\r\n\ @return\ name\ of\ this\ country\r\n
@@ -36,8 +42,8 @@ comment7.target=void\ reset()
 comment7.text=\r\n\ Resets\ all\ the\ cities\ in\ this\ country\ to\ their\ original\ value\r\n
 comment8.params=value
 comment8.target=int\ bonus(int)
-comment8.text=\r\n\ Gets\ the\ random\ number\ bonus\ based\ on\ the\ city\ current\ value\r\n\ @param\ value\ the\ value\ of\ the\ city\r\n\ @return\ the\ randomly\ rolled\ number\ or\ 0\ if\ value\ \=\ 0.\r\n
+comment8.text=\r\n\ Gets\ the\ random\ number\ bonus\ based\ on\ the\ city\ current\ value\r\n\ @param\ value\ the\ value\ of\ the\ city\r\n\ @return\ the\ randomly\ rolled\ number\ or\ 0\ if\ value\ <\=\ 0.\r\n
 comment9.params=a\ b\ length
 comment9.target=void\ addRoads(City,\ City,\ int)
 comment9.text=\r\n\ Adds\ a\ road\ from\ one\ city\ to\ another\ one\ with\ a\ specific\ length\ depending\ on\ which\ country\ they\ are\ in.\r\n\ @param\ a\ a\ city\ in\ this\ country\r\n\ @param\ b\ another\ city\ in\ this\ country\r\n\ @param\ length\ the\ length\ of\ the\ road\r\n
-numComments=14
+numComments=16

@@ -22,6 +22,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -341,7 +342,25 @@ public class GUI {
         JButton playLogButton = new JButton("Play log...");
         //Connect an ActionListener
         playLogButton.addActionListener(e -> {
-            testPlayButton();
+            Log log;
+            if(fileChooser.showOpenDialog(mainFrame) == fileChooser.APPROVE_OPTION) {
+                try {
+                    Path path = Paths.get(fileChooser.getSelectedFile().getCanonicalPath());
+                    String byteString = new String(Files.readAllBytes(path), "windows-1252");
+                    log = new Log(byteString);
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(mainFrame, "Path was not found", "IOException", JOptionPane.ERROR_MESSAGE);
+                    return;
+                } catch (LogException ex) {
+                    JOptionPane.showMessageDialog(mainFrame, "Log was not found", "LogException", JOptionPane.ERROR_MESSAGE);
+                    return;
+                } catch (SettingsException ex) {
+                    JOptionPane.showMessageDialog(mainFrame, "Settings was not found", "SettingsException", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+            game.playLog(log);
+            }
+
         });
         //Add it to the button panel
         buttons.add(playLogButton);
