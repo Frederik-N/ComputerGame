@@ -124,7 +124,10 @@ public class Log {
      * @param path The path to save this log to.
      * @throws IOException May be thrown if various I/O-exceptions occur.
      */
-    public void save(String path) throws IOException{
+    public void save(String path) throws IOException {
+        PrintWriter printWriter = new PrintWriter(path, "windows-1252");
+        printWriter.write(toString());
+        printWriter.close();
     }
     
     /**

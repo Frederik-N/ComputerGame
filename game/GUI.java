@@ -21,6 +21,7 @@ import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -348,14 +349,14 @@ public class GUI {
                     Path path = Paths.get(fileChooser.getSelectedFile().getCanonicalPath());
                     String byteString = new String(Files.readAllBytes(path), "windows-1252");
                     log = new Log(byteString);
-                } catch (IOException ex) {
-                    JOptionPane.showMessageDialog(mainFrame, "Path was not found", "IOException", JOptionPane.ERROR_MESSAGE);
-                    return;
                 } catch (LogException ex) {
-                    JOptionPane.showMessageDialog(mainFrame, "Log was not found", "LogException", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(mainFrame, "Log error", "LogException", JOptionPane.ERROR_MESSAGE);
                     return;
                 } catch (SettingsException ex) {
-                    JOptionPane.showMessageDialog(mainFrame, "Settings was not found", "SettingsException", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(mainFrame, "Settings error", "SettingsException", JOptionPane.ERROR_MESSAGE);
+                    return;
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(mainFrame, "Input/output error", "IOException", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
             game.playLog(log);
@@ -369,7 +370,13 @@ public class GUI {
         JButton saveLogButton = new JButton("Save log...");
         //Connect an ActionListener
         saveLogButton.addActionListener(e -> {
-            testSaveButton();
+            if(fileChooser.showSaveDialog(mainFrame) == fileChooser.APPROVE_OPTION) {
+                try {
+                    game.getLog().save(fileChooser.getSelectedFile().getCanonicalPath());
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(mainFrame, "Input/output error", "IOException", JOptionPane.ERROR_MESSAGE);
+                }
+            }
         });
         //Add it to the button panel
         buttons.add(saveLogButton);
@@ -377,7 +384,7 @@ public class GUI {
         //Return the JPanel
         return buttons;
     }
-    
+
     /**
      * Creates the JFrame which represents the Options...-menu.
      * @return  A JFrame representing the Options...-menu.
