@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=BorderCity
+comment0.text=\r\n\ A\ borderCity\ is\ placed\ within\ a\ country\ and\ has\ a\ specific\ value,\ that\ changes\ when\ the\ players\ arrive.\r\n\ @author\ Jonas\ Madsen\ ||\ Frederik\ Nielsen\r\n\ @version\ 26.11.2017\r\n
+comment1.params=name\ value\ country
+comment1.target=BorderCity(java.lang.String,\ int,\ Country)
+comment1.text=\r\n\ Creates\ a\ new\ BorderCity\ object\r\n\r\n\ @param\ name\ \ \ \ Name\ of\ this\ bordercity\r\n\ @param\ value\ \ \ Value\ of\ this\ bordercity\r\n\ @param\ country\ Which\ country\ the\ bordercity\ is\ placed\ within\r\n
+comment2.params=p
+comment2.target=int\ arrive(Player)
+comment2.text=\r\n\ \ Makes\ the\ player\ pay\ a\ toll\ additional\ to\ the\ bonus\ he\ gets,\ if\ he\ arrives\ in\ another\ country.\r\n\ @param\ p\ A\ player.\r\n\ @return\ super.arrive()\ which\ returns\ a\ bonus\ or\ it\ subtracts\ a\ toll\ from\ bonus.\r\n
+numComments=3

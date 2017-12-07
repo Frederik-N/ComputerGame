@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=CapitalCity
+comment0.text=\r\n\ A\ capitalCity\ is\ placed\ within\ a\ country\ and\ has\ a\ specific\ value,\ that\ changes\ when\ the\ players\ arrive.\r\n\ @author\ Jonas\ Madsen\ ||\ Frederik\ Nielsen\r\n\ @version\ 26.11.2017\r\n
+comment1.params=name\ value\ country
+comment1.target=CapitalCity(java.lang.String,\ int,\ Country)
+comment1.text=\r\n\ Creates\ a\ new\ CapitalCity\ object\r\n\r\n\ @param\ name\ \ \ \ Name\ of\ this\ city\r\n\ @param\ value\ \ \ Value\ of\ this\ city\r\n\ @param\ country\ Which\ country\ the\ city\ is\ placed\ within\r\n
+comment2.params=p
+comment2.target=int\ arrive(Player)
+comment2.text=\r\n\ Makes\ the\ player\ pay\ consumption\ additional\ to\ the\ bonus\ and\ toll\ he\ gets.\r\n\ @param\ p\ A\ player.\r\n\ @return\ the\ bonus\ where\ both\ consumption\ and\ toll\ is\ subtracted\r\n
+numComments=3

@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=MafiaCountry
+comment0.text=\r\n\ A\ mafiaCountry\ that\ contains\ cities\ and\ roads\ between\ cities.\r\n\ @author\ Jonas\ Madsen\ ||\ Frederik\ Nielsen\r\n\ @version\ 26.11.2017\r\n
+comment1.params=name\ network
+comment1.target=MafiaCountry(java.lang.String,\ java.util.Map)
+comment1.text=\r\n\ Creates\ a\ new\ MafiaCountry\ object.\r\n\r\n\ @param\ name\ \ \ \ name\ of\ this\ country.\r\n\ @param\ network\ contains\ cities\ mapped\ to\ a\ list\ of\ roads.\r\n
+comment2.params=value
+comment2.target=int\ bonus(int)
+comment2.text=\r\n\ If\ risk\ is\ over\ the\ random\ number\ rolled\ from\ 0\ to\ 99,\ then\ returns\ the\ loss\r\n\ else\ gets\ the\ random\ number\ bonus\ based\ on\ the\ city\ current\ value.\r\n\ @param\ value\ the\ value\ of\ the\ city\r\n\ @return\ Loss\ after\ robbed\ or\ the\ randomly\ rolled\ number\ (0\ if\ value\ <\=\ 0).\r\n
+numComments=3
