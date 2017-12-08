@@ -350,13 +350,13 @@ public class GUI {
                     String byteString = new String(Files.readAllBytes(path), "windows-1252");
                     log = new Log(byteString);
                 } catch (LogException ex) {
-                    JOptionPane.showMessageDialog(mainFrame, "Log error", "LogException", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(mainFrame, "Error with log", "LogException", JOptionPane.ERROR_MESSAGE);
                     return;
                 } catch (SettingsException ex) {
-                    JOptionPane.showMessageDialog(mainFrame, "Settings error", "SettingsException", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(mainFrame, "Error with the settings", "SettingsException", JOptionPane.ERROR_MESSAGE);
                     return;
                 } catch (IOException ex) {
-                    JOptionPane.showMessageDialog(mainFrame, "Input/output error", "IOException", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(mainFrame, "Error with input or output", "IOException", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
             game.playLog(log);
@@ -374,7 +374,7 @@ public class GUI {
                 try {
                     game.getLog().save(fileChooser.getSelectedFile().getCanonicalPath());
                 } catch (IOException ex) {
-                    JOptionPane.showMessageDialog(mainFrame, "Input/output error", "IOException", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(mainFrame, "Error with input or output", "IOException", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
@@ -526,8 +526,12 @@ public class GUI {
                 try{
                     minLose = Integer.parseInt(minLossTextField.getText());
                     maxLose  = Integer.parseInt(maxLossTextField.getText());
-                    if(minLose < 0 || maxLose < 0 || minLose > 100 || maxLose > 100 || minLose > maxLose){
-                        JOptionPane.showMessageDialog(frame, "'Max loss' and 'Min loss' must be between 0 and 100, and 'Max loss' should be higher than 'Min loss'.", "Malformed input", JOptionPane.ERROR_MESSAGE);
+                    if(minLose < 0 || maxLose < 0 || minLose > 100 || maxLose > 100){
+                        JOptionPane.showMessageDialog(frame, "'Max loss' and 'Min loss' must be between 0 and 100", "Malformed input", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
+                    if (minLose > maxLose) {
+                        JOptionPane.showMessageDialog(frame, "'Max loss' should be higher than 'Min loss'.", "Malformed input", JOptionPane.ERROR_MESSAGE);
                         return;
                     }
                 } catch (NumberFormatException e){

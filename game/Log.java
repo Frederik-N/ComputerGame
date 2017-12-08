@@ -1,4 +1,4 @@
-//import com.sun.xml.internal.fastinfoset.util.StringArray;
+import com.sun.xml.internal.fastinfoset.util.StringArray;
 
 import java.awt.Color;
 import java.io.IOException;
@@ -48,7 +48,7 @@ public class Log {
     
     /**
      * Instantiates a new Log object from its String representation.
-     * @param s The string representation of this Log object.
+     * @param log The string representation of this Log object.
      * @throws SettingsException May be thrown if the Settings is corrupted (too few lines, illegal format).
      * @throws LogException May be thrown if it is unable to properly create this log.
      */
@@ -103,18 +103,22 @@ public class Log {
         return choices.get(t);
     }
 
+    /**
+     * Creates the string format of the specific log file, containing the seed, settings and choices made.
+     * @return A stringv representation of variables within the log
+     */
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append(seed);
-        builder.append('\n');
+        builder.append("\r\n");
         builder.append(settings.toString());
 
         for(Integer c : choices.keySet()) {
             builder.append(c);
             builder.append(" ");
             builder.append(choices.get(c));
-            builder.append('\n');
+            builder.append("\r\n");
         }
         return builder.toString();
     }
